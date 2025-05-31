@@ -5,8 +5,26 @@ from time import time
 import cv2
 import flet as ft
 from scipy.spatial import distance
-
 import dlib
+from PIL import Image, ImageDraw, ImageFont  # ADDED: для работы с русским текстом
+import numpy as np  # ADDED: для преобразования изображений
+
+# ADDED: Функция для отображения русского текста
+def putText_rus(img, text, pos, color=(0, 255, 0), font_size=20, font_path="arial.ttf"):
+    """
+    Рисует текст с поддержкой кириллицы на изображении OpenCV.
+    """
+    img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    draw = ImageDraw.Draw(img_pil)
+    
+    try:
+        # Пытаемся использовать Arial из стандартных шрифтов Windows
+        font = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", font_size)
+    except:
+        font = ImageFont.load_default()
+    
+    draw.text(pos, text, font=font, fill=color[::-1])
+    return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
 
 # Пути к моделям
 shape_predictor_path = 'face_model/shape_predictor_68_face_landmarks.dat'
@@ -22,10 +40,9 @@ faces = []
 file_picker = ft.FilePicker()
 
 def log_detection(name):
-    """Логирование обнаруженных лиц (на английском)"""
-    with open(log_file, 'a', encoding='utf-8') as log: 
+    """Логирование обнаруженных лиц"""
+    with open(log_file, 'a', encoding='utf-8') as log:
         log.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Detected: {name}\n")
-
 
 def load_face_descriptors():
     """Загрузка базы лиц и их дескрипторов"""
@@ -54,7 +71,6 @@ def load_face_descriptors():
 
     print(f"Загружено {len(face_descriptors)} лиц.")
 
-
 def compare_faces(frame, threshold=0.6):
     """Сравнение лиц и поиск совпадений"""
     dets = detector(frame, 0)
@@ -75,7 +91,6 @@ def compare_faces(frame, threshold=0.6):
 
     return None, None, False
 
-
 def resize_image(image, max_width=1920, max_height=1080):
     """Сжатие изображения до 1920×1080"""
     h, w = image.shape[:2]
@@ -85,12 +100,10 @@ def resize_image(image, max_width=1920, max_height=1080):
         return cv2.resize(image, (new_w, new_h))
     return image
 
-
 def image_to_base64(image):
-    """Конвертация изображения в base64 (BGR → PNG)"""
+    """Конвертация изображения в base64"""
     _, encoded_img = cv2.imencode('.png', image)
     return base64.b64encode(encoded_img).decode('utf-8')
-
 
 def exit_mode(page):
     """Выход из текущего режима"""
@@ -100,14 +113,11 @@ def exit_mode(page):
         cap.release()
         cap = None
 
-    # Очистка экрана
     for control in page.controls[:]:
         page.controls.remove(control)
 
-    # Перезапуск интерфейса
     start_interface(page)
     page.update()
-
 
 def start_webcam(page, image_area, match_area, status_text, exit_button):
     """Запуск веб-камеры"""
@@ -135,7 +145,6 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
                 status_text.value = f"Найдено: {closest_face}"
                 status_text.color = ft.Colors.GREEN
 
-                # Загрузка найденного лица из базы
                 match_img_path = os.path.join(base_path, closest_face)
                 match_img = cv2.imread(match_img_path)
                 match_img = resize_image(match_img)
@@ -143,21 +152,20 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
 
             last_detected = closest_face
             last_detection_time = current_time
-            cv2.putText(frame, f"Найдено: {closest_face}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+            frame = putText_rus(frame, f"Найдено: {closest_face}", (10, 30), (0, 255, 0), 20)  # CHANGED
         else:
             if current_time - last_detection_time > 5:
                 last_detected = None
                 status_text.value = "Лицо не найдено"
                 status_text.color = ft.Colors.RED
                 match_area.src_base64 = None
-                cv2.putText(frame, "Лицо не найдено", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                frame = putText_rus(frame, "Лицо не найдено", (10, 30), (0, 0, 255), 20)  # CHANGED
 
         image_area.src_base64 = image_to_base64(frame)
         page.update()
 
     if cap is not None:
         cap.release()
-
 
 def process_selected_image(e, page, image_area, match_area, status_text, exit_button):
     """Обработка выбранного изображения"""
@@ -179,7 +187,6 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
             status_text.color = ft.Colors.GREEN
             log_detection(closest_face)
 
-            # Загрузка найденного лица из базы
             match_img_path = os.path.join(base_path, closest_face)
             match_img = cv2.imread(match_img_path)
             match_img = resize_image(match_img)
@@ -192,14 +199,12 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
         image_area.src_base64 = image_to_base64(img)
         page.update()
 
-
 def pick_image(page, image_area, match_area, status_text, exit_button):
     """Выбор изображения для анализа"""
     file_picker.on_result = lambda e: process_selected_image(e, page, image_area, match_area, status_text, exit_button)
     file_picker.pick_files("Выберите изображение", allowed_extensions=["jpg", "jpeg", "png"])
     exit_button.visible = True
     page.update()
-
 
 def process_selected_video(e, page, image_area, match_area, status_text, exit_button):
     """Обработка выбранного видео"""
@@ -219,7 +224,7 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
             frame = resize_image(frame)
             frame_count += 1
 
-            if frame_count % 30 == 0:  # Проверка каждые 30 кадров
+            if frame_count % 30 == 0:
                 min_dist, closest_face, is_match = compare_faces(frame)
 
                 if is_match:
@@ -228,21 +233,19 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
                         status_text.value = f"Найдено: {closest_face}"
                         status_text.color = ft.Colors.GREEN
 
-                        # Загрузка найденного лица из базы
                         match_img_path = os.path.join(base_path, closest_face)
                         match_img = cv2.imread(match_img_path)
                         match_img = resize_image(match_img)
                         match_area.src_base64 = image_to_base64(match_img)
 
                     last_detected = closest_face
-                    cv2.putText(frame, f"Найдено: {closest_face}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0),
-                                2)
+                    frame = putText_rus(frame, f"Найдено: {closest_face}", (10, 30), (0, 255, 0), 20)  # CHANGED
                 else:
                     if last_detected:
-                        status_text.value = "Face not found"
+                        status_text.value = "Лицо не найдено"
                         status_text.color = ft.Colors.RED
                         match_area.src_base64 = None
-                    cv2.putText(frame, "Face not found", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                    frame = putText_rus(frame, "Лицо не найдено", (10, 30), (0, 0, 255), 20)  # CHANGED
 
             image_area.src_base64 = image_to_base64(frame)
             page.update()
@@ -250,14 +253,12 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
         if cap is not None:
             cap.release()
 
-
 def pick_video(page, image_area, match_area, status_text, exit_button):
     """Выбор видео для анализа"""
     file_picker.on_result = lambda e: process_selected_video(e, page, image_area, match_area, status_text, exit_button)
     file_picker.pick_files("Выберите видео", allowed_extensions=["mp4", "avi", "mov"])
     exit_button.visible = True
     page.update()
-
 
 def start_interface(page: ft.Page):
     page.title = "Распознавание лиц"
@@ -268,10 +269,8 @@ def start_interface(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.padding = 20
 
-    # Добавляем FilePicker в overlay
     page.overlay.append(file_picker)
 
-    # Стиль кнопок
     button_style = ft.ButtonStyle(
         padding=20,
         bgcolor=ft.Colors.BLUE_700,
@@ -279,7 +278,6 @@ def start_interface(page: ft.Page):
         overlay_color=ft.Colors.BLUE_900,
     )
 
-    # Элементы интерфейса
     image_area = ft.Image(src=f'None', width=800, height=600, fit=ft.ImageFit.CONTAIN)
     match_area = ft.Image(src=f'None', width=400, height=600, fit=ft.ImageFit.CONTAIN)
     status_text = ft.Text(size=20, weight="bold")
@@ -293,7 +291,6 @@ def start_interface(page: ft.Page):
         on_click=lambda e: exit_mode(page)
     )
 
-    # Кнопки выбора режима
     webcam_button = ft.ElevatedButton(
         text="Камера",
         icon=ft.Icons.CAMERA,
@@ -320,7 +317,7 @@ def start_interface(page: ft.Page):
         height=80,
         on_click=lambda e: pick_video(page, image_area, match_area, status_text, exit_button),
     )
-    # Основной макет
+
     page.add(
         ft.Row(
             [
@@ -332,8 +329,7 @@ def start_interface(page: ft.Page):
                     ft.Container(exit_button),
                     ft.Container(status_text),
                     ft.Container(match_area)
-                ]
-                ),
+                ]),
                 ft.Container(image_area,)
             ]
         )
@@ -341,15 +337,12 @@ def start_interface(page: ft.Page):
 
 if __name__ == "__main__":
     try:
-        # Загрузка моделей
         sp = dlib.shape_predictor(shape_predictor_path)
         facerec = dlib.face_recognition_model_v1(face_rec_model_path)
         detector = dlib.get_frontal_face_detector()
 
-        # Загрузка базы лиц
         load_face_descriptors()
 
-        # Запуск приложения
         ft.app(target=start_interface)
     except Exception as e:
         print(f"Ошибка запуска приложения: {e}")
