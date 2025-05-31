@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="775b8013-a9f5-401e-a459-d2b0baeae03b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/dlib/python_examples/face_recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/python_examples/face_recognition.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/dlib" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/cbc3bb52-5554-4f6a-b5a8-d85b086d3732_shelfing.tar.gz.732/shelfing/service/server.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2hSfsUA1ywKIF0IIN24MBGPxvUS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Matrix Alex.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Remain.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV3GTX.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV4DragonDoor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV4test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RemainV7.executor&quot;: &quot;Run&quot;,
+    &quot;Python.face_recognition.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.video_processing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Фыфвыфывфывывыв.executor&quot;: &quot;Run&quot;,
+    &quot;Python.рабочка 4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.фывфыв.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hasee/PycharmProjects/Face_ID&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hasee\PycharmProjects\Face_ID" />
+      <recent name="C:\Users\Hasee\PycharmProjects\Face_ID\.venv" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hasee\PycharmProjects\Face_ID" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Mmain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Face_ID" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Hasee\PycharmProjects\Face_ID\Mmain.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Mmain" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="775b8013-a9f5-401e-a459-d2b0baeae03b" name="Changes" comment="" />
+      <created>1717592605789</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717592605789</updated>
+      <workItem from="1717592607706" duration="5290000" />
+      <workItem from="1717832717211" duration="597000" />
+      <workItem from="1718310467153" duration="598000" />
+      <workItem from="1718434803634" duration="853000" />
+      <workItem from="1718630531174" duration="416000" />
+      <workItem from="1718631049532" duration="1616000" />
+      <workItem from="1718715303122" duration="183000" />
+      <workItem from="1718995355331" duration="2234000" />
+      <workItem from="1719563341264" duration="745000" />
+      <workItem from="1719592945426" duration="5718000" />
+      <workItem from="1719601038046" duration="317000" />
+      <workItem from="1719633841811" duration="70000" />
+      <workItem from="1719670273409" duration="227000" />
+      <workItem from="1719774845591" duration="810000" />
+      <workItem from="1719780396539" duration="1319000" />
+      <workItem from="1719812142463" duration="4780000" />
+      <workItem from="1719818550630" duration="5554000" />
+      <workItem from="1720898461486" duration="4000" />
+      <workItem from="1720898944945" duration="109000" />
+      <workItem from="1721665394557" duration="537000" />
+      <workItem from="1722800717982" duration="1203000" />
+      <workItem from="1723031030434" duration="771000" />
+      <workItem from="1724939072482" duration="730000" />
+      <workItem from="1726149933592" duration="14000" />
+      <workItem from="1728205008971" duration="3117000" />
+      <workItem from="1733170728146" duration="1623000" />
+      <workItem from="1734365051034" duration="4167000" />
+      <workItem from="1737119245255" duration="1643000" />
+      <workItem from="1737524471751" duration="602000" />
+      <workItem from="1737550128312" duration="618000" />
+      <workItem from="1737556843701" duration="48000" />
+      <workItem from="1738219633312" duration="4252000" />
+      <workItem from="1739879928126" duration="4205000" />
+      <workItem from="1740383711558" duration="491000" />
+      <workItem from="1740386110636" duration="2000" />
+      <workItem from="1742541867255" duration="4117000" />
+      <workItem from="1742549803778" duration="1871000" />
+      <workItem from="1743141482854" duration="3074000" />
+      <workItem from="1743144637649" duration="82000" />
+      <workItem from="1743144727696" duration="328000" />
+      <workItem from="1743333604519" duration="513000" />
+      <workItem from="1743437701281" duration="2358000" />
+      <workItem from="1743680097252" duration="11275000" />
+      <workItem from="1743701638080" duration="2527000" />
+      <workItem from="1743778447520" duration="176000" />
+      <workItem from="1743836324686" duration="27000" />
+      <workItem from="1743842926412" duration="1873000" />
+      <workItem from="1743882060433" duration="607000" />
+      <workItem from="1744029647259" duration="7000" />
+      <workItem from="1744030101918" duration="4507000" />
+      <workItem from="1744122021405" duration="1058000" />
+      <workItem from="1744286477505" duration="1925000" />
+      <workItem from="1744364749334" duration="1095000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/face_recognition_py$Remain.coverage" NAME="Remain Coverage Results" MODIFIED="1743681074412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_ID$Remain.coverage" NAME="Remain Coverage Results" MODIFIED="1719824523993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV4.coverage" NAME="RemainV4 Coverage Results" MODIFIED="1744032003224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_ID$main.coverage" NAME="main Coverage Results" MODIFIED="1719780508326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV3GTX.coverage" NAME="RemainV3GTX Coverage Results" MODIFIED="1743681053967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV2.coverage" NAME="RemainV2 Coverage Results" MODIFIED="1744033973920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_ID$Matrix_Alex.coverage" NAME="Matrix Alex Coverage Results" MODIFIED="1719775508771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../AlexWhat/.venv" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$server.coverage" NAME="server Coverage Results" MODIFIED="1728209596424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$_4.coverage" NAME="рабочка 4 Coverage Results" MODIFIED="1743437982989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/Питон/Расход" />
+    <SUITE FILE_PATH="coverage/Face_ID$video_processing.coverage" NAME="video_processing Coverage Results" MODIFIED="1717595657032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV5.coverage" NAME="RemainV5 Coverage Results" MODIFIED="1743701958684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_ID$utils.coverage" NAME="utils Coverage Results" MODIFIED="1719780713518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_ID$.coverage" NAME="Фыфвыфывфывывыв Coverage Results" MODIFIED="1719598095647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$main.coverage" NAME="main Coverage Results" MODIFIED="1744034040216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$test.coverage" NAME="test Coverage Results" MODIFIED="1743681926495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV6.coverage" NAME="RemainV6 Coverage Results" MODIFIED="1744033922612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV4test.coverage" NAME="RemainV4test Coverage Results" MODIFIED="1743688898033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV4DragonDoor.coverage" NAME="RemainV4DragonDoor Coverage Results" MODIFIED="1743144814066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV3.coverage" NAME="RemainV3 Coverage Results" MODIFIED="1744032017464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Face_ID$face_recognition.coverage" NAME="face_recognition Coverage Results" MODIFIED="1718997209683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/face_recognition_py$RemainV7.coverage" NAME="RemainV7 Coverage Results" MODIFIED="1744365807664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
