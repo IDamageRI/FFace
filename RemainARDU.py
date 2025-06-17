@@ -6,25 +6,15 @@ import cv2
 import flet as ft
 from scipy.spatial import distance
 import dlib
-from PIL import Image, ImageDraw, ImageFont  # ADDED: для работы с русским текстом
-import numpy as np  # ADDED: для преобразования изображений
+from PIL import Image, ImageDraw, ImageFont
+import numpy as np
+import serial
+import serial.tools.list_ports
 
-# ADDED: Функция для отображения русского текста
-def putText_rus(img, text, pos, color=(0, 255, 0), font_size=20, font_path="arial.ttf"):
-    """
-    Рисует текст с поддержкой кириллицы на изображении OpenCV.
-    """
-    img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-    draw = ImageDraw.Draw(img_pil)
-    
-    try:
-        # Пытаемся использовать Arial из стандартных шрифтов Windows
-        font = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", font_size)
-    except:
-        font = ImageFont.load_default()
-    
-    draw.text(pos, text, font=font, fill=color[::-1])
-    return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
+# Настройки Arduino
+ARDUINO_PORT = None  # Автоматическое определение
+BAUD_RATE = 9600
+ser = None
 
 # Пути к моделям
 shape_predictor_path = 'face_model/shape_predictor_68_face_landmarks.dat'
@@ -39,6 +29,52 @@ face_descriptors = []
 faces = []
 file_picker = ft.FilePicker()
 
+# Инициализация детектора и моделей
+detector = dlib.get_frontal_face_detector()
+sp = dlib.shape_predictor(shape_predictor_path)
+facerec = dlib.face_recognition_model_v1(face_rec_model_path)
+
+def init_arduino_connection():
+    """Инициализация соединения с Arduino для управления реле"""
+    global ser, ARDUINO_PORT
+    ports = serial.tools.list_ports.comports()
+    for port in ports:
+        if 'Arduino' in port.description or 'CH340' in port.description:
+            ARDUINO_PORT = port.device
+            break
+    
+    if ARDUINO_PORT:
+        try:
+            ser = serial.Serial(ARDUINO_PORT, BAUD_RATE, timeout=1)
+            print(f"Connected to Arduino on {ARDUINO_PORT}")
+            return True
+        except serial.SerialException as e:
+            print(f"Failed to connect to Arduino: {e}")
+            return False
+    else:
+        print("Arduino not found. Relay control will be disabled.")
+        return False
+
+def control_relay(state):
+    if ser and ser.is_open:
+        try:
+            ser.write(b'1' if state else b'0')
+        except serial.SerialException as e:
+            print("Arduino error:", e)
+
+def putText_rus(img, text, pos, color=(0, 255, 0), font_size=20):
+    """Рисует текст с поддержкой кириллицы на изображении"""
+    img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    draw = ImageDraw.Draw(img_pil)
+    
+    try:
+        font = ImageFont.truetype("arial.ttf", font_size)
+    except:
+        font = ImageFont.load_default()
+    
+    draw.text(pos, text, font=font, fill=color[::-1])
+    return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
+
 def log_detection(name):
     """Логирование обнаруженных лиц"""
     with open(log_file, 'a', encoding='utf-8') as log:
@@ -50,8 +86,12 @@ def load_face_descriptors():
     face_descriptors = []
     faces = os.listdir(base_path)
 
+    if not os.path.exists(base_path):
+        os.makedirs(base_path)
+
     if not faces:
-        raise ValueError(f"В папке {base_path} нет сохранённых лиц")
+        print(f"В папке {base_path} нет сохранённых лиц")
+        return False
 
     for face in faces:
         img_path = os.path.join(base_path, face)
@@ -70,12 +110,14 @@ def load_face_descriptors():
             face_descriptors.append(facerec.compute_face_descriptor(img, shape))
 
     print(f"Загружено {len(face_descriptors)} лиц.")
+    return True
 
 def compare_faces(frame, threshold=0.6):
     """Сравнение лиц и поиск совпадений"""
     dets = detector(frame, 0)
 
     if len(dets) == 0:
+        control_relay(False)
         return None, None, False
 
     for d in dets:
@@ -87,12 +129,14 @@ def compare_faces(frame, threshold=0.6):
         closest_face_idx = distances.index(min_dist)
         is_match = min_dist <= threshold
 
+        control_relay(is_match)
         return min_dist, faces[closest_face_idx], is_match
 
+    control_relay(False)
     return None, None, False
 
 def resize_image(image, max_width=1920, max_height=1080):
-    """Сжатие изображения до 1920×1080"""
+    """Сжатие изображения"""
     h, w = image.shape[:2]
     if w > max_width or h > max_height:
         scale = min(max_width / w, max_height / h)
@@ -112,7 +156,9 @@ def exit_mode(page):
     if cap is not None:
         cap.release()
         cap = None
-
+    
+    control_relay(False)
+    
     for control in page.controls[:]:
         page.controls.remove(control)
 
@@ -140,7 +186,6 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
         current_time = time()
 
         if is_match:
-            # Получаем имя файла без расширения
             face_name = os.path.splitext(closest_face)[0]
             
             if last_detected != closest_face or current_time - last_detection_time > 5:
@@ -186,7 +231,6 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
         min_dist, closest_face, is_match = compare_faces(img)
 
         if is_match:
-            # Получаем имя файла без расширения
             face_name = os.path.splitext(closest_face)[0]
             status_text.value = f"Совпадение: {face_name} (Расстояние: {min_dist:.2f})"
             status_text.color = ft.Colors.GREEN
@@ -203,7 +247,7 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
 
         image_area.src_base64 = image_to_base64(img)
         page.update()
-        
+
 def pick_image(page, image_area, match_area, status_text, exit_button):
     """Выбор изображения для анализа"""
     file_picker.on_result = lambda e: process_selected_image(e, page, image_area, match_area, status_text, exit_button)
@@ -233,7 +277,6 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
                 min_dist, closest_face, is_match = compare_faces(frame)
 
                 if is_match:
-                    # Получаем имя файла без расширения
                     face_name = os.path.splitext(closest_face)[0]
                     
                     if last_detected != closest_face:
@@ -269,7 +312,10 @@ def pick_video(page, image_area, match_area, status_text, exit_button):
     page.update()
 
 def start_interface(page: ft.Page):
-    page.title = "Распознавание лиц"
+    """Инициализация интерфейса"""
+    init_arduino_connection()
+    
+    page.title = "Распознавание лиц с Arduino"
     page.window_width = 1400
     page.window_height = 800
     page.window_resizable = False
@@ -286,8 +332,8 @@ def start_interface(page: ft.Page):
         overlay_color=ft.Colors.BLUE_900,
     )
 
-    image_area = ft.Image(src=f'None', width=800, height=600, fit=ft.ImageFit.CONTAIN)
-    match_area = ft.Image(src=f'None', width=400, height=600, fit=ft.ImageFit.CONTAIN)
+    image_area = ft.Image(src=None, width=800, height=600, fit=ft.ImageFit.CONTAIN)
+    match_area = ft.Image(src=None, width=400, height=600, fit=ft.ImageFit.CONTAIN)
     status_text = ft.Text(size=20, weight="bold")
     exit_button = ft.ElevatedButton(
         text="Выход",
@@ -345,13 +391,11 @@ def start_interface(page: ft.Page):
 
 if __name__ == "__main__":
     try:
-        sp = dlib.shape_predictor(shape_predictor_path)
-        facerec = dlib.face_recognition_model_v1(face_rec_model_path)
-        detector = dlib.get_frontal_face_detector()
-
-        load_face_descriptors()
-
+        if not load_face_descriptors():
+            print("Не удалось загрузить базу лиц. Создайте папку 'face_db' и добавьте изображения.")
+        
         ft.app(target=start_interface)
     except Exception as e:
         print(f"Ошибка запуска приложения: {e}")
+        control_relay(False)
         exit(1)
