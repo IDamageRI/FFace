@@ -1,20 +1,57 @@
 import base64
 import os
 from datetime import datetime
-from time import time
 import cv2
 import flet as ft
 from scipy.spatial import distance
 import dlib
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
-import serial
-import serial.tools.list_ports
+import serial  # ADDED: для связи с Arduino
+import serial.tools.list_ports  # ADDED: для поиска портов
+import time  # Добавьте эту строку в начало файла с другими импортами
 
-# Настройки Arduino
-ARDUINO_PORT = None  # Автоматическое определение
-BAUD_RATE = 9600
-ser = None
+def connect_to_arduino():
+    """Поиск и подключение к Arduino"""
+    global arduino_serial
+    ports = serial.tools.list_ports.comports()
+    
+    # Попробуем сначала COM4, если он указан явно
+    try:
+        arduino_serial = serial.Serial('COM4', 9600, timeout=1)
+        time.sleep(2)  # Даем время Arduino на инициализацию
+        print(f"Успешно подключено к Arduino на COM4")
+        return arduino_serial
+    except (serial.SerialException, serial.SerialTimeoutException) as e:
+        print(f"Ошибка подключения к COM4: {e}")
+    
+    # Если COM4 не сработал, пробуем другие порты
+    for port in ports:
+        try:
+            print(f"Пытаюсь подключиться к {port.device}")
+            arduino_serial = serial.Serial(port.device, 9600, timeout=1)
+            time.sleep(2)  # Даем время Arduino на инициализацию
+            print(f"Успешно подключено к Arduino на {port.device}")
+            return arduino_serial
+        except (serial.SerialException, serial.SerialTimeoutException) as e:
+            print(f"Ошибка подключения к {port.device}: {e}")
+            continue
+    
+    print("Arduino не найдена. Проверьте подключение.")
+    return None
+
+# ADDED: Функция для отображения русского текста
+def putText_rus(img, text, pos, color=(0, 255, 0), font_size=20, font_path="arial.ttf"):
+    img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    draw = ImageDraw.Draw(img_pil)
+    
+    try:
+        font = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", font_size)
+    except:
+        font = ImageFont.load_default()
+    
+    draw.text(pos, text, font=font, fill=color[::-1])
+    return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
 
 # Пути к моделям
 shape_predictor_path = 'face_model/shape_predictor_68_face_landmarks.dat'
@@ -28,52 +65,35 @@ cap = None
 face_descriptors = []
 faces = []
 file_picker = ft.FilePicker()
+arduino_serial = None  # ADDED: Serial-соединение с Arduino
 
-# Инициализация детектора и моделей
-detector = dlib.get_frontal_face_detector()
-sp = dlib.shape_predictor(shape_predictor_path)
-facerec = dlib.face_recognition_model_v1(face_rec_model_path)
-
-def init_arduino_connection():
-    """Инициализация соединения с Arduino для управления реле"""
-    global ser, ARDUINO_PORT
+def connect_to_arduino():
+    """Поиск и подключение к Arduino"""
+    global arduino_serial
     ports = serial.tools.list_ports.comports()
     for port in ports:
-        if 'Arduino' in port.description or 'CH340' in port.description:
-            ARDUINO_PORT = port.device
-            break
-    
-    if ARDUINO_PORT:
         try:
-            ser = serial.Serial(ARDUINO_PORT, BAUD_RATE, timeout=1)
-            print(f"Connected to Arduino on {ARDUINO_PORT}")
-            return True
-        except serial.SerialException as e:
-            print(f"Failed to connect to Arduino: {e}")
-            return False
-    else:
-        print("Arduino not found. Relay control will be disabled.")
-        return False
+            # Попытка подключения к Arduino (обычно использует 9600 baud)
+            ser = serial.Serial(port.device, 9600, timeout=1)
+            print(f"Пытаюсь подключиться к {port.device}")
+            # Даем Arduino время на перезагрузку
+            time.sleep(2)
+            # Проверяем соединение
+            ser.write(b'0')  # Посылаем 0 для проверки
+            return ser
+        except (serial.SerialException, serial.SerialTimeoutException):
+            continue
+    return None
 
-def control_relay(state):
-    if ser and ser.is_open:
+def send_to_arduino(command):
+    """Отправка команды на Arduino"""
+    global arduino_serial
+    if arduino_serial and arduino_serial.is_open:
         try:
-            ser.write(b'1' if state else b'0')
+            arduino_serial.write(command.encode())
+            print(f"Отправлено на Arduino: {command}")
         except serial.SerialException as e:
-            print("Arduino error:", e)
-
-def putText_rus(img, text, pos, color=(0, 255, 0), font_size=20):
-    """Рисует текст с поддержкой кириллицы на изображении"""
-    img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-    draw = ImageDraw.Draw(img_pil)
-    
-    try:
-        font = ImageFont.truetype("arial.ttf", font_size)
-    except:
-        font = ImageFont.load_default()
-    
-    draw.text(pos, text, font=font, fill=color[::-1])
-    return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
+            print(f"Ошибка отправки на Arduino: {e}")
 
 def log_detection(name):
     """Логирование обнаруженных лиц"""
@@ -86,12 +106,8 @@ def load_face_descriptors():
     face_descriptors = []
     faces = os.listdir(base_path)
 
-    if not os.path.exists(base_path):
-        os.makedirs(base_path)
-
     if not faces:
-        print(f"В папке {base_path} нет сохранённых лиц")
-        return False
+        raise ValueError(f"В папке {base_path} нет сохранённых лиц")
 
     for face in faces:
         img_path = os.path.join(base_path, face)
@@ -110,14 +126,12 @@ def load_face_descriptors():
             face_descriptors.append(facerec.compute_face_descriptor(img, shape))
 
     print(f"Загружено {len(face_descriptors)} лиц.")
-    return True
 
-def compare_faces(frame, threshold=0.6):
+def compare_faces(frame, threshold=0.4):
     """Сравнение лиц и поиск совпадений"""
     dets = detector(frame, 0)
 
     if len(dets) == 0:
-        control_relay(False)
         return None, None, False
 
     for d in dets:
@@ -129,14 +143,12 @@ def compare_faces(frame, threshold=0.6):
         closest_face_idx = distances.index(min_dist)
         is_match = min_dist <= threshold
 
-        control_relay(is_match)
         return min_dist, faces[closest_face_idx], is_match
 
-    control_relay(False)
     return None, None, False
 
-def resize_image(image, max_width=1920, max_height=1080):
-    """Сжатие изображения"""
+def resize_image(image, max_width=800, max_height=600):
+    """Сжатие изображения до 1920×1080"""
     h, w = image.shape[:2]
     if w > max_width or h > max_height:
         scale = min(max_width / w, max_height / h)
@@ -156,9 +168,7 @@ def exit_mode(page):
     if cap is not None:
         cap.release()
         cap = None
-    
-    control_relay(False)
-    
+
     for control in page.controls[:]:
         page.controls.remove(control)
 
@@ -175,6 +185,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
 
     last_detected = None
     last_detection_time = 0
+    arduino_triggered = False
 
     while is_running:
         ret, frame = cap.read()
@@ -183,12 +194,23 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
 
         frame = resize_image(frame)
         min_dist, closest_face, is_match = compare_faces(frame)
-        current_time = time()
+        current_time = time.time()
 
         if is_match:
             face_name = os.path.splitext(closest_face)[0]
             
-            if last_detected != closest_face or current_time - last_detection_time > 5:
+            # Если обнаружено новое лицо (отличающееся от предыдущего)
+            if last_detected != closest_face:
+                # Сначала отправляем сигнал "лицо не найдено"
+                if arduino_triggered:
+                    send_to_arduino('0')
+                    arduino_triggered = False
+                    time.sleep(0.025)  # Короткая пауза
+                
+                # Затем отправляем сигнал "лицо найдено"
+                send_to_arduino('1')
+                arduino_triggered = True
+                
                 log_detection(closest_face)
                 status_text.value = f"Найдено: {face_name}"
                 status_text.color = ft.Colors.GREEN
@@ -202,22 +224,34 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
             last_detection_time = current_time
             frame = putText_rus(frame, f"Найдено: {face_name}", (10, 30), (0, 255, 0), 20)
         else:
-            if current_time - last_detection_time > 5:
+            if current_time - last_detection_time > 5 or last_detected:
                 last_detected = None
                 status_text.value = "Лицо не найдено"
                 status_text.color = ft.Colors.RED
                 match_area.src_base64 = None
                 frame = putText_rus(frame, "Лицо не найдено", (10, 30), (0, 0, 255), 20)
+                
+                if arduino_triggered:
+                    send_to_arduino('0')
+                    arduino_triggered = False
 
         image_area.src_base64 = image_to_base64(frame)
         page.update()
 
     if cap is not None:
         cap.release()
+    
+    if arduino_triggered:
+        send_to_arduino('0')
+
 
 def process_selected_image(e, page, image_area, match_area, status_text, exit_button):
     """Обработка выбранного изображения"""
     if e.files:
+        # Сначала отправляем "лицо не найдено"
+        send_to_arduino('0')
+        time.sleep(0.1)
+        
         image_path = e.files[0].path
         img = cv2.imread(image_path)
 
@@ -235,6 +269,9 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
             status_text.value = f"Совпадение: {face_name} (Расстояние: {min_dist:.2f})"
             status_text.color = ft.Colors.GREEN
             log_detection(closest_face)
+            
+            # Отправляем "лицо найдено"
+            send_to_arduino('1')
 
             match_img_path = os.path.join(base_path, closest_face)
             match_img = cv2.imread(match_img_path)
@@ -247,7 +284,7 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
 
         image_area.src_base64 = image_to_base64(img)
         page.update()
-
+        
 def pick_image(page, image_area, match_area, status_text, exit_button):
     """Выбор изображения для анализа"""
     file_picker.on_result = lambda e: process_selected_image(e, page, image_area, match_area, status_text, exit_button)
@@ -264,6 +301,7 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
         cap = cv2.VideoCapture(video_path)
         frame_count = 0
         last_detected = None
+        arduino_triggered = False
 
         while is_running and cap.isOpened():
             ret, frame = cap.read()
@@ -280,6 +318,16 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
                     face_name = os.path.splitext(closest_face)[0]
                     
                     if last_detected != closest_face:
+                        # Сначала отправляем "лицо не найдено"
+                        if arduino_triggered:
+                            send_to_arduino('0')
+                            arduino_triggered = False
+                            time.sleep(0.1)
+                        
+                        # Затем отправляем "лицо найдено"
+                        send_to_arduino('1')
+                        arduino_triggered = True
+                        
                         log_detection(closest_face)
                         status_text.value = f"Найдено: {face_name}"
                         status_text.color = ft.Colors.GREEN
@@ -296,6 +344,11 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
                         status_text.value = "Лицо не найдено"
                         status_text.color = ft.Colors.RED
                         match_area.src_base64 = None
+                        
+                        if arduino_triggered:
+                            send_to_arduino('0')
+                            arduino_triggered = False
+                            
                     frame = putText_rus(frame, "Лицо не найдено", (10, 30), (0, 0, 255), 20)
 
             image_area.src_base64 = image_to_base64(frame)
@@ -303,6 +356,9 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
 
         if cap is not None:
             cap.release()
+            
+        if arduino_triggered:
+            send_to_arduino('0')
 
 def pick_video(page, image_area, match_area, status_text, exit_button):
     """Выбор видео для анализа"""
@@ -312,10 +368,7 @@ def pick_video(page, image_area, match_area, status_text, exit_button):
     page.update()
 
 def start_interface(page: ft.Page):
-    """Инициализация интерфейса"""
-    init_arduino_connection()
-    
-    page.title = "Распознавание лиц с Arduino"
+    page.title = "Распознавание лиц"
     page.window_width = 1400
     page.window_height = 800
     page.window_resizable = False
@@ -332,8 +385,8 @@ def start_interface(page: ft.Page):
         overlay_color=ft.Colors.BLUE_900,
     )
 
-    image_area = ft.Image(src=None, width=800, height=600, fit=ft.ImageFit.CONTAIN)
-    match_area = ft.Image(src=None, width=400, height=600, fit=ft.ImageFit.CONTAIN)
+    image_area = ft.Image(src=f'None', width=800, height=600, fit=ft.ImageFit.CONTAIN)
+    match_area = ft.Image(src=f'None', width=400, height=600, fit=ft.ImageFit.CONTAIN)
     status_text = ft.Text(size=20, weight="bold")
     exit_button = ft.ElevatedButton(
         text="Выход",
@@ -391,11 +444,26 @@ def start_interface(page: ft.Page):
 
 if __name__ == "__main__":
     try:
-        if not load_face_descriptors():
-            print("Не удалось загрузить базу лиц. Создайте папку 'face_db' и добавьте изображения.")
+        sp = dlib.shape_predictor(shape_predictor_path)
+        facerec = dlib.face_recognition_model_v1(face_rec_model_path)
+        detector = dlib.get_frontal_face_detector()
+
+        load_face_descriptors()
         
+        # ADDED: Подключаемся к Arduino при запуске
+        arduino_serial = connect_to_arduino()
+        if arduino_serial:
+            print(f"Успешно подключено к Arduino на {arduino_serial.port}")
+        else:
+            print("Arduino не найдена. Проверьте подключение.")
+
         ft.app(target=start_interface)
+        
+        # ADDED: Закрываем соединение при выходе
+        if arduino_serial and arduino_serial.is_open:
+            arduino_serial.close()
     except Exception as e:
         print(f"Ошибка запуска приложения: {e}")
-        control_relay(False)
+        if arduino_serial and arduino_serial.is_open:
+            arduino_serial.close()
         exit(1)
