@@ -10,6 +10,7 @@ import numpy as np
 import serial  # ADDED: для связи с Arduino
 import serial.tools.list_ports  # ADDED: для поиска портов
 import time  # Добавьте эту строку в начало файла с другими импортами
+import threading
 
 def connect_to_arduino():
     """Поиск и подключение к Arduino"""
@@ -367,14 +368,77 @@ def pick_video(page, image_area, match_area, status_text, exit_button):
     exit_button.visible = True
     page.update()
 
+
 def start_interface(page: ft.Page):
-    page.title = "Распознавание лиц"
-    page.window_width = 1400
-    page.window_height = 800
+    page.title = "Система распознавания лиц"
+    page.window_width = 1600
+    page.window_height = 900
     page.window_resizable = False
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.padding = 20
+
+    # Создаем список для хранения логов
+    log_entries = ft.ListView(
+        expand=True,
+        spacing=5,
+        auto_scroll=True,
+    )
+    
+    # Контейнер для журнала с темным фоном
+    log_container = ft.Container(
+        content=log_entries,
+        border=ft.border.all(1, ft.Colors.GREY_800),
+        border_radius=10,
+        padding=10,
+        width=400,
+        height=750,
+        bgcolor="#111418",  # Темный фон
+    )
+    
+    # Функция для добавления новой записи в лог
+    def add_log_entry(message):
+        log_entries.controls.append(
+            ft.Text(
+                message,
+                size=12,
+                color=ft.Colors.WHITE,  # Белый текст
+                selectable=True,
+            )
+        )
+        page.update()
+    
+    def update_logs():
+        last_position = 0
+        while True:
+            try:
+                with open('detection_log.txt', 'r', encoding='utf-8') as f:
+                    f.seek(0, 2)  # Переход в конец файла
+                    file_size = f.tell()
+                    
+                    if file_size < last_position:
+                        # Файл был очищен или перезаписан
+                        last_position = 0
+                        log_entries.controls.clear()
+                        page.update()
+                    
+                    if file_size > last_position:
+                        f.seek(last_position)
+                        new_lines = f.readlines()
+                        last_position = f.tell()
+                        
+                        if new_lines:
+                            for line in new_lines:
+                                line = line.strip()
+                                if line:
+                                    add_log_entry(line)
+            except Exception as e:
+                print(f"Ошибка чтения лога: {e}")
+            
+            time.sleep(1)
+
+    # Запускаем поток для обновления логов
+    threading.Thread(target=update_logs, daemon=True).start()
 
     page.overlay.append(file_picker)
 
@@ -385,9 +449,12 @@ def start_interface(page: ft.Page):
         overlay_color=ft.Colors.BLUE_900,
     )
 
-    image_area = ft.Image(src=f'None', width=800, height=600, fit=ft.ImageFit.CONTAIN)
-    match_area = ft.Image(src=f'None', width=400, height=600, fit=ft.ImageFit.CONTAIN)
+    # Увеличили размеры областей изображений
+    image_area = ft.Image(src=f'None', width=1000, height=750, fit=ft.ImageFit.CONTAIN)
+    match_area = ft.Image(src=f'None', width=400, height=750, fit=ft.ImageFit.CONTAIN)
+    
     status_text = ft.Text(size=20, weight="bold")
+    
     exit_button = ft.ElevatedButton(
         text="Выход",
         icon=ft.Icons.EXIT_TO_APP,
@@ -425,20 +492,50 @@ def start_interface(page: ft.Page):
         on_click=lambda e: pick_video(page, image_area, match_area, status_text, exit_button),
     )
 
+    # Создаем layout
+    
     page.add(
         ft.Row(
             [
-                ft.Column([
-                    ft.Text("Выберите метод:", size=24, weight="bold"),
-                    ft.Container(webcam_button),
-                    ft.Container(image_button),
-                    ft.Container(video_button),
-                    ft.Container(exit_button),
-                    ft.Container(status_text),
-                    ft.Container(match_area)
-                ]),
-                ft.Container(image_area,)
-            ]
+                # Левая панель с кнопками и совпадением
+                ft.Column(
+                    [
+                        ft.Text("Управление", size=24, weight="bold"),
+                        webcam_button,
+                        image_button,
+                        video_button,
+                        exit_button,
+                        status_text,
+                        match_area
+                    ],
+                    width=400,
+                    alignment=ft.MainAxisAlignment.START,
+                ),
+                
+                # Центральная панель с видео
+                ft.Column(
+                    [image_area],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                    expand=True
+                ),
+                
+                # Правая панель с логами (обновленная версия)
+                ft.Column(
+                    [
+                        ft.Text(
+                            "Журнал событий", 
+                            size=24, 
+                            weight="bold",
+                            color=ft.Colors.WHITE  # Белый текст заголовка
+                        ),
+                        log_container  # Используем наш контейнер с темным фоном
+                    ],
+                    width=400,
+                    alignment=ft.MainAxisAlignment.START,
+                )
+            ],
+            spacing=20,
+            expand=True,
         )
     )
 
@@ -450,7 +547,6 @@ if __name__ == "__main__":
 
         load_face_descriptors()
         
-        # ADDED: Подключаемся к Arduino при запуске
         arduino_serial = connect_to_arduino()
         if arduino_serial:
             print(f"Успешно подключено к Arduino на {arduino_serial.port}")
@@ -459,7 +555,6 @@ if __name__ == "__main__":
 
         ft.app(target=start_interface)
         
-        # ADDED: Закрываем соединение при выходе
         if arduino_serial and arduino_serial.is_open:
             arduino_serial.close()
     except Exception as e:
