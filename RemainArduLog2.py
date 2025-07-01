@@ -99,7 +99,7 @@ def send_to_arduino(command):
 def log_detection(name):
     """Логирование обнаруженных лиц"""
     with open(log_file, 'a', encoding='utf-8') as log:
-        log.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Detected: {name}\n")
+        log.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Detected: {os.path.splitext(name)[0]}\n")
 
 def load_face_descriptors():
     """Загрузка базы лиц и их дескрипторов"""
@@ -112,7 +112,7 @@ def load_face_descriptors():
 
     for face in faces:
         img_path = os.path.join(base_path, face)
-        img = cv2.imread(img_path)
+        img = cv2.imdecode(np.fromfile(img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if img is None:
             print(f"Ошибка загрузки изображения {img_path}")
             continue
@@ -217,7 +217,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
                 status_text.color = ft.Colors.GREEN
 
                 match_img_path = os.path.join(base_path, closest_face)
-                match_img = cv2.imread(match_img_path)
+                match_img = cv2.imdecode(np.fromfile(match_img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
                 match_img = resize_image(match_img)
                 match_area.src_base64 = image_to_base64(match_img)
 
@@ -267,7 +267,7 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
 
         if is_match:
             face_name = os.path.splitext(closest_face)[0]
-            status_text.value = f"Совпадение: {face_name} (Расстояние: {min_dist:.2f})"
+            status_text.value = f"Совпадение: {face_name}"
             status_text.color = ft.Colors.GREEN
             log_detection(closest_face)
             
@@ -275,7 +275,7 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
             send_to_arduino('1')
 
             match_img_path = os.path.join(base_path, closest_face)
-            match_img = cv2.imread(match_img_path)
+            match_img = cv2.imdecode(np.fromfile(match_img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
             match_img = resize_image(match_img)
             match_area.src_base64 = image_to_base64(match_img)
         else:
@@ -334,7 +334,7 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
                         status_text.color = ft.Colors.GREEN
 
                         match_img_path = os.path.join(base_path, closest_face)
-                        match_img = cv2.imread(match_img_path)
+                        match_img = cv2.imdecode(np.fromfile(match_img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
                         match_img = resize_image(match_img)
                         match_area.src_base64 = image_to_base64(match_img)
 
@@ -371,13 +371,12 @@ def pick_video(page, image_area, match_area, status_text, exit_button):
 
 def start_interface(page: ft.Page):
     page.title = "Система распознавания лиц"
-    page.window_width = 1600
-    page.window_height = 900
+    page.window.full_screen = True
     page.window_resizable = False
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.padding = 20
-
+    page.bgcolor = "#111524"
     # Создаем список для хранения логов
     log_entries = ft.ListView(
         expand=True,
@@ -450,10 +449,10 @@ def start_interface(page: ft.Page):
     )
 
     # Увеличили размеры областей изображений
-    image_area = ft.Image(src=f'None', width=1000, height=750, fit=ft.ImageFit.CONTAIN)
-    match_area = ft.Image(src=f'None', width=400, height=750, fit=ft.ImageFit.CONTAIN)
+    image_area = ft.Image(src=f'None', width=1200, height=900, fit=ft.ImageFit.CONTAIN)
+    match_area = ft.Image(src=f'None', width=350, height=550)
     
-    status_text = ft.Text(size=20, weight="bold")
+    status_text = ft.Text(size=20, weight="bold", width=300)
     
     exit_button = ft.ElevatedButton(
         text="Выход",
@@ -500,7 +499,7 @@ def start_interface(page: ft.Page):
                 # Левая панель с кнопками и совпадением
                 ft.Column(
                     [
-                        ft.Text("Выберите метод:", size=24, weight="bold"),
+                        ft.Text("Выберите метод:", size=24, weight="bold", color= "white"),
                         webcam_button,
                         image_button,
                         video_button,
@@ -508,7 +507,6 @@ def start_interface(page: ft.Page):
                         status_text,
                         match_area
                     ],
-                    width=400,
                     alignment=ft.MainAxisAlignment.START,
                 ),
                 
