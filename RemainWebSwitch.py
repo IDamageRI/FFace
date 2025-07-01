@@ -99,7 +99,7 @@ def send_to_arduino(command):
 def log_detection(name):
     """Логирование обнаруженных лиц"""
     with open(log_file, 'a', encoding='utf-8') as log:
-        log.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Detected: {os.path.splitext(name)[0]}\n")
+        log.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Распознан: {os.path.splitext(name)[0]}\n")
 
 def load_face_descriptors():
     """Загрузка базы лиц и их дескрипторов"""
@@ -176,11 +176,48 @@ def exit_mode(page):
     start_interface(page)
     page.update()
 
-def start_webcam(page, image_area, match_area, status_text, exit_button):
+
+
+def list_available_cameras(max_tested=5):
+    """Проверяет доступные камеры и возвращает список работающих"""
+    available_cameras = []
+    for i in range(max_tested):
+        cap = cv2.VideoCapture(i)
+        if cap.isOpened():
+            available_cameras.append(i)
+            cap.release()
+    return available_cameras
+
+
+
+'''def start_webcam(page, image_area, match_area, status_text, exit_button):
     """Запуск веб-камеры"""
     global is_running, cap
     is_running = True
-    cap = cv2.VideoCapture(0)
+    
+    # Получаем список доступных камер
+    cameras = list_available_cameras()
+    if not cameras:
+        status_text.value = "Не найдено доступных камер"
+        status_text.color = ft.Colors.RED
+        page.update()
+        return
+    
+    # Если есть несколько камер, используем не первую (0), а последнюю (обычно это USB-камера)
+    camera_index = cameras[-1]
+    
+    # Для отладки можно вывести информацию о камере
+    print(f"Используется камера с индексом {camera_index}")
+    
+    cap = cv2.VideoCapture(camera_index)
+    
+    # Проверяем, удалось ли открыть камеру
+    if not cap.isOpened():
+        status_text.value = f"Ошибка: не удалось открыть камеру {camera_index}"
+        status_text.color = ft.Colors.RED
+        page.update()
+        return
+    
     exit_button.visible = True
     page.update()
 
@@ -191,6 +228,9 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
     while is_running:
         ret, frame = cap.read()
         if not ret:
+            status_text.value = "Ошибка чтения кадра с камеры"
+            status_text.color = ft.Colors.RED
+            page.update()
             break
 
         frame = resize_image(frame)
@@ -223,7 +263,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
 
             last_detected = closest_face
             last_detection_time = current_time
-            frame = putText_rus(frame, f"Найдено: {face_name}", (10, 30), (0, 255, 0), 20)
+            
         else:
             if current_time - last_detection_time > 5 or last_detected:
                 last_detected = None
@@ -244,7 +284,90 @@ def start_webcam(page, image_area, match_area, status_text, exit_button):
     
     if arduino_triggered:
         send_to_arduino('0')
+'''
+def start_webcam(page, image_area, match_area, status_text, exit_button, camera_index=0):
+    """Запуск веб-камеры с указанным индексом"""
+    global is_running, cap
+    is_running = True
+    
+    print(f"Пытаюсь открыть камеру с индексом {camera_index}")  # Для отладки
+    
+    cap = cv2.VideoCapture(camera_index)
+    
+    # Проверяем, удалось ли открыть камеру
+    if not cap.isOpened():
+        status_text.value = f"Ошибка: не удалось открыть камеру {camera_index}"
+        status_text.color = ft.Colors.RED
+        page.update()
+        return
+    
+    # Устанавливаем разрешение
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+    
+    exit_button.visible = True
+    page.update()
 
+    last_detected = None
+    last_detection_time = 0
+    arduino_triggered = False
+
+    while is_running:
+        ret, frame = cap.read()
+        if not ret:
+            status_text.value = "Ошибка чтения кадра с камеры"
+            status_text.color = ft.Colors.RED
+            page.update()
+            break
+
+        frame = resize_image(frame)
+        min_dist, closest_face, is_match = compare_faces(frame)
+        current_time = time.time()
+
+        if is_match:
+            face_name = os.path.splitext(closest_face)[0]
+            
+            if last_detected != closest_face:
+                if arduino_triggered:
+                    send_to_arduino('0')
+                    arduino_triggered = False
+                    time.sleep(0.025)
+                
+                send_to_arduino('1')
+                arduino_triggered = True
+                
+                log_detection(closest_face)
+                status_text.value = f"Найдено: {face_name}"
+                status_text.color = ft.Colors.GREEN
+
+                match_img_path = os.path.join(base_path, closest_face)
+                match_img = cv2.imdecode(np.fromfile(match_img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
+                match_img = resize_image(match_img)
+                match_area.src_base64 = image_to_base64(match_img)
+
+            last_detected = closest_face
+            last_detection_time = current_time
+            
+        else:
+            if current_time - last_detection_time > 5 or last_detected:
+                last_detected = None
+                status_text.value = "Лицо не найдено"
+                status_text.color = ft.Colors.RED
+                match_area.src_base64 = None
+                frame = putText_rus(frame, "Лицо не найдено", (10, 30), (0, 0, 255), 20)
+                
+                if arduino_triggered:
+                    send_to_arduino('0')
+                    arduino_triggered = False
+
+        image_area.src_base64 = image_to_base64(frame)
+        page.update()
+
+    if cap is not None:
+        cap.release()
+    
+    if arduino_triggered:
+        send_to_arduino('0')
 
 def process_selected_image(e, page, image_area, match_area, status_text, exit_button):
     """Обработка выбранного изображения"""
@@ -371,12 +494,14 @@ def pick_video(page, image_area, match_area, status_text, exit_button):
 
 def start_interface(page: ft.Page):
     page.title = "Система распознавания лиц"
-    page.window.full_screen = True
-    page.window_resizable = False
+    page.window.maximized = True
+    page.window.maximizable = False
+    page.window.resizable = False
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.padding = 20
     page.bgcolor = "#111524"
+    
     # Создаем список для хранения логов
     log_entries = ft.ListView(
         expand=True,
@@ -384,7 +509,6 @@ def start_interface(page: ft.Page):
         auto_scroll=True,
     )
     
-    # Контейнер для журнала с темным фоном
     log_container = ft.Container(
         content=log_entries,
         border=ft.border.all(1, ft.Colors.GREY_800),
@@ -392,16 +516,15 @@ def start_interface(page: ft.Page):
         padding=10,
         width=400,
         height=750,
-        bgcolor="#111418",  # Темный фон
+        bgcolor="#11158",
     )
     
-    # Функция для добавления новой записи в лог
     def add_log_entry(message):
         log_entries.controls.append(
             ft.Text(
                 message,
                 size=12,
-                color=ft.Colors.WHITE,  # Белый текст
+                color=ft.Colors.WHITE,
                 selectable=True,
             )
         )
@@ -412,11 +535,10 @@ def start_interface(page: ft.Page):
         while True:
             try:
                 with open('detection_log.txt', 'r', encoding='utf-8') as f:
-                    f.seek(0, 2)  # Переход в конец файла
+                    f.seek(0, 2)
                     file_size = f.tell()
                     
                     if file_size < last_position:
-                        # Файл был очищен или перезаписан
                         last_position = 0
                         log_entries.controls.clear()
                         page.update()
@@ -436,7 +558,6 @@ def start_interface(page: ft.Page):
             
             time.sleep(1)
 
-    # Запускаем поток для обновления логов
     threading.Thread(target=update_logs, daemon=True).start()
 
     page.overlay.append(file_picker)
@@ -448,12 +569,30 @@ def start_interface(page: ft.Page):
         overlay_color=ft.Colors.BLUE_900,
     )
 
-    # Увеличили размеры областей изображений
     image_area = ft.Image(src=f'None', width=1200, height=900, fit=ft.ImageFit.CONTAIN)
     match_area = ft.Image(src=f'None', width=350, height=550)
-    
     status_text = ft.Text(size=20, weight="bold", width=300)
     
+    # Элемент выбора камеры
+    camera_dropdown = ft.Dropdown(
+        options=[],
+        label="Выберите камеру",
+        width=200,
+        visible=False,
+    )
+     
+    def update_camera_list():
+        cameras = list_available_cameras()
+        options = []
+        for cam_idx in cameras:
+        # Сохраняем в value числовое значение (cam_idx), а в тексте отображаем "Камера X"
+            options.append(ft.dropdown.Option(text=f"Камера {cam_idx}", key=str(cam_idx)))
+        camera_dropdown.options = options
+        if cameras:
+            camera_dropdown.value = str(cameras[-1])  # По умолчанию выбираем последнюю камеру
+        camera_dropdown.visible = True
+        page.update()
+     
     exit_button = ft.ElevatedButton(
         text="Выход",
         icon=ft.Icons.EXIT_TO_APP,
@@ -470,8 +609,34 @@ def start_interface(page: ft.Page):
         style=button_style,
         width=200,
         height=80,
-        on_click=lambda e: start_webcam(page, image_area, match_area, status_text, exit_button),
+        on_click=lambda e: [
+            update_camera_list(),
+            ft.Text("Выберите камеру из списка и нажмите 'Запустить'", color="white")
+        ],
     )
+    start_button = ft.ElevatedButton(
+    text="Запустить",
+    icon=ft.Icons.PLAY_ARROW,
+    style=button_style,
+    width=200,
+    height=80,
+    visible=False,
+    on_click=lambda e: start_webcam(
+        page=page,
+        image_area=image_area,
+        match_area=match_area,
+        status_text=status_text,
+        exit_button=exit_button,
+        camera_index=int(camera_dropdown.value) if camera_dropdown.value else 0
+    ),
+)
+    
+    # Обновляем видимость кнопки запуска при выборе камеры
+    def on_camera_selected(e):
+        start_button.visible = bool(camera_dropdown.value)
+        page.update()
+    
+    camera_dropdown.on_change = on_camera_selected
 
     image_button = ft.ElevatedButton(
         text="Изображение",
@@ -491,16 +656,15 @@ def start_interface(page: ft.Page):
         on_click=lambda e: pick_video(page, image_area, match_area, status_text, exit_button),
     )
 
-    # Создаем layout
-    
     page.add(
         ft.Row(
             [
-                # Левая панель с кнопками и совпадением
                 ft.Column(
                     [
-                        ft.Text("Выберите метод:", size=24, weight="bold", color= "white"),
+                        ft.Text("Выберите метод:", size=24, weight="bold", color="white"),
                         webcam_button,
+                        camera_dropdown,
+                        start_button,
                         image_button,
                         video_button,
                         exit_button,
@@ -508,25 +672,19 @@ def start_interface(page: ft.Page):
                         match_area
                     ],
                     alignment=ft.MainAxisAlignment.START,
+                    spacing=10,
                 ),
                 
-                # Центральная панель с видео
                 ft.Column(
                     [image_area],
                     alignment=ft.MainAxisAlignment.CENTER,
                     expand=True
                 ),
                 
-                # Правая панель с логами (обновленная версия)
                 ft.Column(
                     [
-                        ft.Text(
-                            "Журнал событий", 
-                            size=24, 
-                            weight="bold",
-                            color=ft.Colors.WHITE  # Белый текст заголовка
-                        ),
-                        log_container  # Используем наш контейнер с темным фоном
+                        ft.Text("Журнал событий", size=24, weight="bold", color=ft.Colors.WHITE),
+                        log_container
                     ],
                     width=400,
                     alignment=ft.MainAxisAlignment.START,
