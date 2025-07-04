@@ -1,0 +1,282 @@
+2025-07-04 12:52:53,646 - Загружено 16 лиц.
+2025-07-04 12:52:53,646 - Arduino не найдена. Проверьте подключение.
+2025-07-04 12:52:53,663 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 12:52:53,663 - Starting up TCP server on localhost:55278
+2025-07-04 12:52:53,682 - Flet app has started...
+2025-07-04 12:52:53,686 - App URL: tcp://localhost:55278
+2025-07-04 12:52:53,686 - Starting Flet View app...
+2025-07-04 12:52:53,686 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 12:52:53,686 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 12:52:53,990 - App session started
+2025-07-04 12:53:13,287 - Загружено 16 лиц.
+2025-07-04 12:53:14,750 - RTSP: Подключение установлено
+2025-07-04 12:55:11,457 - Загружено 16 лиц.
+2025-07-04 12:59:02,500 - Загружено 16 лиц.
+2025-07-04 12:59:02,500 - Arduino не найдена. Проверьте подключение.
+2025-07-04 12:59:02,522 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 12:59:02,524 - Starting up TCP server on localhost:55323
+2025-07-04 12:59:02,524 - Flet app has started...
+2025-07-04 12:59:02,534 - App URL: tcp://localhost:55323
+2025-07-04 12:59:02,534 - Starting Flet View app...
+2025-07-04 12:59:02,534 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 12:59:02,534 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 12:59:02,821 - App session started
+2025-07-04 12:59:30,748 - Загружено 16 лиц.
+2025-07-04 12:59:32,197 - RTSP: Подключение установлено
+2025-07-04 12:59:32,267 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:33,310 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:34,366 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:35,421 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:36,487 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:37,540 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:38,596 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:39,652 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:40,707 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:41,764 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:42,816 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:43,873 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:44,929 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:45,985 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:47,042 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:48,094 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:49,148 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:50,204 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:51,259 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:52,309 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:53,365 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:54,422 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:55,479 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:56,523 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:57,584 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:58,629 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 12:59:59,687 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:00:00,742 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:00:01,784 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:00:02,830 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:00:44,399 - Загружено 16 лиц.
+2025-07-04 13:00:44,403 - Arduino не найдена. Проверьте подключение.
+2025-07-04 13:00:44,421 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 13:00:44,423 - Starting up TCP server on localhost:55363
+2025-07-04 13:00:44,429 - Flet app has started...
+2025-07-04 13:00:44,433 - App URL: tcp://localhost:55363
+2025-07-04 13:00:44,434 - Starting Flet View app...
+2025-07-04 13:00:44,435 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:00:44,435 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:00:44,719 - App session started
+2025-07-04 13:01:06,610 - Загружено 16 лиц.
+2025-07-04 13:01:07,995 - RTSP: Подключение установлено
+2025-07-04 13:01:08,063 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:09,105 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:10,146 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:11,188 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:12,231 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:13,286 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:14,341 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:15,403 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:16,457 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:17,512 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:18,567 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:19,622 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:20,666 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:21,708 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:22,761 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:23,808 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:24,857 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:25,909 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:26,960 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:28,010 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:29,064 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:30,119 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:31,187 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:32,240 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:33,295 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:34,353 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:35,404 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:36,454 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:37,496 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:38,563 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:39,608 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:40,673 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:41,735 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:42,784 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:43,841 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:44,884 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:01:45,938 - Ошибка в основном цикле RTSP: name 'last_detection_time' is not defined
+2025-07-04 13:04:55,013 - Загружено 16 лиц.
+2025-07-04 13:04:55,017 - Arduino не найдена. Проверьте подключение.
+2025-07-04 13:04:55,034 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 13:04:55,036 - Starting up TCP server on localhost:55402
+2025-07-04 13:04:55,043 - Flet app has started...
+2025-07-04 13:04:55,043 - App URL: tcp://localhost:55402
+2025-07-04 13:04:55,043 - Starting Flet View app...
+2025-07-04 13:04:55,043 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:04:55,043 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:04:55,347 - App session started
+2025-07-04 13:05:09,549 - Загружено 16 лиц.
+2025-07-04 13:05:09,550 - Future exception was never retrieved
+future: <Future finished exception=TypeError('cannot unpack non-iterable NoneType object')>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 649, in <lambda>
+    on_click=lambda e: start_rtsp_camera(
+                       ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 227, in start_rtsp_camera
+    detector, sp, facerec = load_face_descriptors()
+    ^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+2025-07-04 13:05:35,154 - Загружено 16 лиц.
+2025-07-04 13:05:35,155 - Future exception was never retrieved
+future: <Future finished exception=TypeError('cannot unpack non-iterable NoneType object')>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 649, in <lambda>
+    on_click=lambda e: start_rtsp_camera(
+                       ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 227, in start_rtsp_camera
+    detector, sp, facerec = load_face_descriptors()
+    ^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+2025-07-04 13:06:12,153 - Загружено 16 лиц.
+2025-07-04 13:06:12,153 - Arduino не найдена. Проверьте подключение.
+2025-07-04 13:06:12,168 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 13:06:12,187 - Starting up TCP server on localhost:55409
+2025-07-04 13:06:12,191 - Flet app has started...
+2025-07-04 13:06:12,191 - App URL: tcp://localhost:55409
+2025-07-04 13:06:12,191 - Starting Flet View app...
+2025-07-04 13:06:12,191 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:06:12,191 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:06:12,507 - App session started
+2025-07-04 13:06:29,048 - Загружено 16 лиц.
+2025-07-04 13:06:29,049 - Future exception was never retrieved
+future: <Future finished exception=TypeError('cannot unpack non-iterable NoneType object')>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 649, in <lambda>
+    on_click=lambda e: start_rtsp_camera(
+                       ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 227, in start_rtsp_camera
+    detector, sp, facerec = load_face_descriptors()
+    ^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object
+2025-07-04 13:08:22,894 - Загружено 16 лиц.
+2025-07-04 13:08:23,302 - exception calling callback for <Future at 0x268929ffc90 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 437, in <lambda>
+    file_picker.on_result = lambda e: process_selected_image(e, page, image_area, match_area, status_text, exit_button)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 433, in process_selected_image
+    page.update()
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 732, in update
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-07-04 13:08:40,301 - Загружено 16 лиц.
+2025-07-04 13:08:40,301 - Arduino не найдена. Проверьте подключение.
+2025-07-04 13:08:40,326 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 13:08:40,326 - Starting up TCP server on localhost:55430
+2025-07-04 13:08:40,332 - Flet app has started...
+2025-07-04 13:08:40,332 - App URL: tcp://localhost:55430
+2025-07-04 13:08:40,332 - Starting Flet View app...
+2025-07-04 13:08:40,339 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:08:40,339 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:08:40,653 - App session started
+2025-07-04 13:09:00,194 - Загружено 16 лиц.
+2025-07-04 13:09:18,822 - Загружено 16 лиц.
+2025-07-04 13:09:41,691 - Загружено 16 лиц.
+2025-07-04 13:10:20,882 - Загружено 16 лиц.
+2025-07-04 13:11:04,843 - Загружено 16 лиц.
+2025-07-04 13:11:06,208 - RTSP: Подключение установлено
+2025-07-04 13:16:04,013 - Загружено 16 лиц.
+2025-07-04 13:16:04,017 - Arduino не найдена. Проверьте подключение.
+2025-07-04 13:16:04,034 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 13:16:04,037 - Starting up TCP server on localhost:55498
+2025-07-04 13:16:04,038 - Flet app has started...
+2025-07-04 13:16:04,048 - App URL: tcp://localhost:55498
+2025-07-04 13:16:04,048 - Starting Flet View app...
+2025-07-04 13:16:04,049 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:16:04,049 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:16:04,341 - App session started
+2025-07-04 13:16:21,464 - Загружено 16 лиц.
+2025-07-04 13:16:22,934 - RTSP: Подключение установлено
+2025-07-04 13:16:31,136 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:32,533 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:33,958 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:35,352 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:36,741 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:38,134 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:41,910 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:45,478 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:46,878 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:16:48,274 - Ошибка в основном цикле RTSP: name 'face_name' is not defined
+2025-07-04 13:23:15,034 - Загружено 16 лиц.
+2025-07-04 13:23:15,034 - Arduino не найдена. Проверьте подключение.
+2025-07-04 13:23:15,049 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 13:23:15,066 - Starting up TCP server on localhost:55540
+2025-07-04 13:23:15,072 - Flet app has started...
+2025-07-04 13:23:15,072 - App URL: tcp://localhost:55540
+2025-07-04 13:23:15,072 - Starting Flet View app...
+2025-07-04 13:23:15,072 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:23:15,072 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:23:15,381 - App session started
+2025-07-04 13:23:34,625 - Загружено 16 лиц.
+2025-07-04 13:23:36,023 - RTSP: Подключение установлено
+2025-07-04 13:26:38,262 - Загружено 58 лиц.
+2025-07-04 13:27:11,071 - socket.send() raised exception.
+2025-07-04 13:27:11,071 - socket.send() raised exception.
+2025-07-04 13:28:13,606 - Загружено 16 лиц.
+2025-07-04 13:28:13,621 - Arduino не найдена. Проверьте подключение.
+2025-07-04 13:28:13,637 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 13:28:13,639 - Starting up TCP server on localhost:55570
+2025-07-04 13:28:13,645 - Flet app has started...
+2025-07-04 13:28:13,650 - App URL: tcp://localhost:55570
+2025-07-04 13:28:13,650 - Starting Flet View app...
+2025-07-04 13:28:13,651 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:28:13,651 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 13:28:13,946 - App session started
+2025-07-04 13:28:33,844 - Загружено 16 лиц.
+2025-07-04 13:28:59,955 - Загружено 16 лиц.
+2025-07-04 13:29:58,139 - Загружено 16 лиц.
+2025-07-04 13:30:21,353 - Загружено 16 лиц.
+2025-07-04 13:32:00,744 - Загружено 16 лиц.
+2025-07-04 13:32:19,951 - Загружено 16 лиц.
