@@ -289,9 +289,9 @@ def start_rtsp_camera(page, image_area, match_area, status_text, exit_button):
                         
                         if arduino_triggered:
                             send_to_arduino('0')
-                            arduino_triggered = False
+                            arduino_triggered = False                                
                     
-                    frame = putText_rus(frame, "Лицо не найдено", (10, 30), (0, 0, 255), 20)
+                    frame = putText_rus(frame, "Лицо не найдено", (10, 30), (0, 0, 255), 20)                                                                                                                                                                                                            
                 
                 image_area.src_base64 = image_to_base64(frame)
                 page.update()
@@ -304,7 +304,7 @@ def start_rtsp_camera(page, image_area, match_area, status_text, exit_button):
     
     if arduino_triggered:
         send_to_arduino('0')
-        
+
 def start_webcam(page, image_area, match_area, status_text, exit_button, camera_index=0):
     """Запуск веб-камеры"""
     global is_running, cap

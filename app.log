@@ -280,3 +280,92 @@ RuntimeError: Event loop is closed
 2025-07-04 13:30:21,353 - Загружено 16 лиц.
 2025-07-04 13:32:00,744 - Загружено 16 лиц.
 2025-07-04 13:32:19,951 - Загружено 16 лиц.
+2025-07-04 14:54:55,191 - Загружено 16 лиц.
+2025-07-04 14:54:57,212 - Успешно подключено к Arduino на COM4
+2025-07-04 14:54:57,249 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 14:54:57,249 - Starting up TCP server on localhost:55722
+2025-07-04 14:54:57,259 - Flet app has started...
+2025-07-04 14:54:57,264 - App URL: tcp://localhost:55722
+2025-07-04 14:54:57,264 - Starting Flet View app...
+2025-07-04 14:54:57,264 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 14:54:57,264 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 14:54:57,576 - App session started
+2025-07-04 14:55:29,625 - Отправлено на Arduino: 0
+2025-07-04 14:55:42,125 - Загружено 16 лиц.
+2025-07-04 14:55:55,936 - Отправлено на Arduino: 0
+2025-07-04 14:56:08,981 - Загружено 16 лиц.
+2025-07-04 14:56:09,316 - Отправлено на Arduino: 1
+2025-07-04 14:56:14,180 - Отправлено на Arduino: 0
+2025-07-04 14:56:45,240 - Загружено 16 лиц.
+2025-07-04 14:56:47,250 - Успешно подключено к Arduino на COM4
+2025-07-04 14:56:47,288 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 14:56:47,288 - Starting up TCP server on localhost:55749
+2025-07-04 14:56:47,296 - Flet app has started...
+2025-07-04 14:56:47,299 - App URL: tcp://localhost:55749
+2025-07-04 14:56:47,299 - Starting Flet View app...
+2025-07-04 14:56:47,300 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 14:56:47,300 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 14:56:47,612 - App session started
+2025-07-04 14:57:26,324 - Загружено 16 лиц.
+2025-07-04 14:57:34,067 - Отправлено на Arduino: 1
+2025-07-04 14:57:34,494 - Отправлено на Arduino: 0
+2025-07-04 14:57:34,519 - Отправлено на Arduino: 1
+2025-07-04 14:57:34,950 - Отправлено на Arduino: 0
+2025-07-04 14:57:34,976 - Отправлено на Arduino: 1
+2025-07-04 14:57:39,178 - Отправлено на Arduino: 0
+2025-07-04 14:57:49,000 - Отправлено на Arduino: 1
+2025-07-04 14:57:49,538 - Отправлено на Arduino: 0
+2025-07-04 14:58:46,936 - Загружено 166 лиц.
+2025-07-04 14:58:49,254 - RTSP: Подключение установлено
+2025-07-04 15:00:20,852 - Загружено 16 лиц.
+2025-07-04 15:00:22,863 - Успешно подключено к Arduino на COM4
+2025-07-04 15:00:22,889 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 15:00:22,894 - Starting up TCP server on localhost:55775
+2025-07-04 15:00:22,901 - Flet app has started...
+2025-07-04 15:00:22,905 - App URL: tcp://localhost:55775
+2025-07-04 15:00:22,905 - Starting Flet View app...
+2025-07-04 15:00:22,905 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 15:00:22,906 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 15:00:23,193 - App session started
+2025-07-04 15:00:38,210 - Загружено 16 лиц.
+2025-07-04 15:00:39,605 - RTSP: Подключение установлено
+2025-07-04 15:00:55,171 - Отправлено на Arduino: 1
+2025-07-04 15:00:58,235 - Отправлено на Arduino: 0
+2025-07-04 15:01:01,213 - Отправлено на Arduino: 1
+2025-07-04 15:01:03,928 - Отправлено на Arduino: 0
+2025-07-04 15:01:50,103 - Загружено 16 лиц.
+2025-07-04 15:01:56,539 - Отправлено на Arduino: 1
+2025-07-04 15:01:56,668 - Отправлено на Arduino: 0
+2025-07-04 15:01:58,059 - Отправлено на Arduino: 1
+2025-07-04 15:01:58,995 - Отправлено на Arduino: 0
+2025-07-04 15:02:17,885 - Загружено 16 лиц.
+2025-07-04 15:02:19,326 - RTSP: Подключение установлено
+2025-07-04 15:02:28,462 - Отправлено на Arduino: 0
+2025-07-04 15:02:41,604 - Загружено 16 лиц.
+2025-07-04 15:02:41,949 - Отправлено на Arduino: 1
+2025-07-04 15:02:56,779 - Загружено 16 лиц.
+2025-07-04 15:02:58,207 - RTSP: Подключение установлено
+2025-07-04 15:03:19,795 - Отправлено на Arduino: 1
+2025-07-04 15:03:22,818 - Отправлено на Arduino: 0
+2025-07-04 15:04:09,517 - Загружено 16 лиц.
+2025-07-04 15:04:11,528 - Успешно подключено к Arduino на COM4
+2025-07-04 15:04:11,554 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-07-04 15:04:11,565 - Starting up TCP server on localhost:55832
+2025-07-04 15:04:11,565 - Flet app has started...
+2025-07-04 15:04:11,575 - App URL: tcp://localhost:55832
+2025-07-04 15:04:11,575 - Starting Flet View app...
+2025-07-04 15:04:11,575 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 15:04:11,576 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-07-04 15:04:11,877 - App session started
+2025-07-04 15:04:26,252 - Загружено 16 лиц.
+2025-07-04 15:04:27,648 - RTSP: Подключение установлено
+2025-07-04 15:04:32,286 - Отправлено на Arduino: 1
+2025-07-04 15:04:32,665 - Отправлено на Arduino: 0
+2025-07-04 15:04:32,691 - Отправлено на Arduino: 1
+2025-07-04 15:04:33,081 - Отправлено на Arduino: 0
+2025-07-04 15:04:36,110 - Отправлено на Arduino: 1
+2025-07-04 15:04:36,891 - Отправлено на Arduino: 0
+2025-07-04 15:04:42,890 - Отправлено на Arduino: 1
+2025-07-04 15:04:45,206 - Отправлено на Arduino: 0
+2025-07-04 15:04:45,232 - Отправлено на Arduino: 1
+2025-07-04 15:04:46,457 - Отправлено на Arduino: 0
