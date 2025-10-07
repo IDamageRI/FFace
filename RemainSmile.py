@@ -17,8 +17,8 @@ shape_predictor_path = 'face_model/shape_predictor_68_face_landmarks.dat'
 face_rec_model_path = 'face_model/dlib_face_recognition_resnet_model_v1.dat'
 smile_cascade_path = 'haarcascade_smile.xml'  # Haar каскад для улыбки
 base_path = 'face_bd'
-neutral_faces_path = 'face_bd/neutral'  # Папка с нейтральными лицами
-smiling_faces_path = 'face_bd/smiling'  # Папка с улыбающимися лицами
+neutral_faces_path = 'neutral'  # Папка с нейтральными лицами
+smiling_faces_path = 'smiling'  # Папка с улыбающимися лицами
 log_file = 'detection_log.txt'
 
 is_running = False
@@ -411,8 +411,8 @@ def start_interface(page: ft.Page):
     arduino_serial = connect_to_arduino()
     
     # Создание элементов интерфейса
-    image_area = ft.Image(src=None, width=1000, height=700, fit=ft.ImageFit.CONTAIN)
-    match_area = ft.Image(src=None, width=300, height=400)
+    image_area = ft.Image(src=f"None", width=1000, height=700, fit=ft.ImageFit.CONTAIN)
+    match_area = ft.Image(src=f"None", width=300, height=400)
     status_text = ft.Text(size=18, weight="bold", width=280, color="white")
     
     # Кнопки и элементы управления

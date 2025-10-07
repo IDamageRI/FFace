@@ -579,7 +579,7 @@ def start_interface(page: ft.Page):
     )
 
     image_area = ft.Image(src=f'None', width=1200, height=900, fit=ft.ImageFit.CONTAIN)
-    match_area = ft.Image(src=f'None', width=350, height=550)
+    match_area = ft.Image(src=f'None', width=350, height=300)
     status_text = ft.Text(size=20, weight="bold", width=300)
     
     camera_dropdown = ft.Dropdown(
@@ -741,3 +741,5 @@ if __name__ == "__main__":
         if arduino_serial and arduino_serial.is_open:
             arduino_serial.close()
         exit(1)
+
+        

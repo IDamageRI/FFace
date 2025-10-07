@@ -369,3 +369,1088 @@ RuntimeError: Event loop is closed
 2025-07-04 15:04:45,206 - Отправлено на Arduino: 0
 2025-07-04 15:04:45,232 - Отправлено на Arduino: 1
 2025-07-04 15:04:46,457 - Отправлено на Arduino: 0
+2025-09-24 09:15:20,345 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-24 09:15:20,345 - Starting up TCP server on localhost:64110
+2025-09-24 09:15:20,361 - Flet app has started...
+2025-09-24 09:15:20,365 - App URL: tcp://localhost:64110
+2025-09-24 09:15:20,365 - Starting Flet View app...
+2025-09-24 09:15:20,365 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:15:20,365 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:15:20,991 - App session started
+2025-09-24 09:15:25,625 - Загружено 2 нейтральных лиц
+2025-09-24 09:15:25,632 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:16:40,927 - Загружено 2 нейтральных лиц
+2025-09-24 09:16:40,932 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:16:40,934 - exception calling callback for <Future at 0x248470422d0 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 815, in <lambda>
+    on_click=lambda e: exit_mode(page)
+                       ^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 706, in exit_mode
+    start_interface(page)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 883, in start_interface
+    page.add(
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 740, in add
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-24 09:16:40,935 - Ошибка чтения лога: 
+2025-09-24 09:20:37,611 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-24 09:20:37,612 - Starting up TCP server on localhost:49344
+2025-09-24 09:20:37,619 - Flet app has started...
+2025-09-24 09:20:37,619 - App URL: tcp://localhost:49344
+2025-09-24 09:20:37,619 - Starting Flet View app...
+2025-09-24 09:20:37,625 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:20:37,625 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:20:37,978 - App session started
+2025-09-24 09:20:41,466 - Загружено 2 нейтральных лиц
+2025-09-24 09:20:41,471 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:20:49,342 - exception calling callback for <Future at 0x207359cab10 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 967, in <lambda>
+    on_click=lambda e: update_camera_list(),
+                       ^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 941, in update_camera_list
+    page.update()
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 732, in update
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-24 09:21:23,920 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-24 09:21:23,920 - Starting up TCP server on localhost:54712
+2025-09-24 09:21:23,936 - Flet app has started...
+2025-09-24 09:21:23,936 - App URL: tcp://localhost:54712
+2025-09-24 09:21:23,936 - Starting Flet View app...
+2025-09-24 09:21:23,936 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:21:23,936 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:21:24,251 - App session started
+2025-09-24 09:21:27,772 - Загружено 2 нейтральных лиц
+2025-09-24 09:21:27,777 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:22:17,493 - Загружено 2 нейтральных лиц
+2025-09-24 09:22:17,493 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:22:17,493 - exception calling callback for <Future at 0x2e00c80a9d0 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 958, in <lambda>
+    on_click=lambda e: exit_mode(page)
+                       ^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 849, in exit_mode
+    start_interface(page)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 1026, in start_interface
+    page.add(
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 740, in add
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-24 09:22:17,493 - Ошибка чтения лога: 
+2025-09-24 09:31:59,562 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-24 09:31:59,562 - Starting up TCP server on localhost:65305
+2025-09-24 09:31:59,578 - Flet app has started...
+2025-09-24 09:31:59,578 - App URL: tcp://localhost:65305
+2025-09-24 09:31:59,578 - Starting Flet View app...
+2025-09-24 09:31:59,578 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:31:59,578 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:32:00,082 - App session started
+2025-09-24 09:32:03,406 - Загружено 2 нейтральных лиц
+2025-09-24 09:32:03,411 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:32:28,301 - Future exception was never retrieved
+future: <Future finished exception=NameError("name 'detect_smile' is not defined")>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 1085, in <lambda>
+    on_click=lambda e: start_webcam(
+                       ^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 762, in start_webcam
+    smile_detected, smile_conf = two_factor_authentication(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 502, in two_factor_authentication
+    smile_detected, smile_confidence = detect_smile(processed_face)
+                                       ^^^^^^^^^^^^
+NameError: name 'detect_smile' is not defined
+2025-09-24 09:32:54,556 - Загружено 2 нейтральных лиц
+2025-09-24 09:32:54,556 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:32:54,556 - exception calling callback for <Future at 0x2787e4ea290 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 1066, in <lambda>
+    on_click=lambda e: exit_mode(page)
+                       ^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 957, in exit_mode
+    start_interface(page)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 1134, in start_interface
+    page.add(
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 740, in add
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-24 09:32:54,556 - Ошибка чтения лога: 
+2025-09-24 09:53:10,847 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-24 09:53:10,847 - Starting up TCP server on localhost:56111
+2025-09-24 09:53:10,854 - Flet app has started...
+2025-09-24 09:53:10,860 - App URL: tcp://localhost:56111
+2025-09-24 09:53:10,860 - Starting Flet View app...
+2025-09-24 09:53:10,860 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:53:10,860 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 09:53:11,183 - App session started
+2025-09-24 09:53:14,593 - Загружено 2 нейтральных лиц
+2025-09-24 09:53:14,598 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:53:42,884 - Future exception was never retrieved
+future: <Future finished exception=NameError("name 'detect_smile' is not defined")>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 1085, in <lambda>
+    on_click=lambda e: start_webcam(
+                       ^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 762, in start_webcam
+    smile_detected, smile_conf = two_factor_authentication(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 502, in two_factor_authentication
+    smile_detected, smile_confidence = detect_smile(processed_face)
+                                       ^^^^^^^^^^^^
+NameError: name 'detect_smile' is not defined
+2025-09-24 09:54:07,850 - Загружено 2 нейтральных лиц
+2025-09-24 09:54:07,850 - Arduino не найдена. Проверьте подключение.
+2025-09-24 09:54:07,850 - exception calling callback for <Future at 0x278e47ee0d0 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 1066, in <lambda>
+    on_click=lambda e: exit_mode(page)
+                       ^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 957, in exit_mode
+    start_interface(page)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainSmile2.py", line 1134, in start_interface
+    page.add(
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 740, in add
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-24 09:54:07,850 - Ошибка чтения лога: 
+2025-09-24 10:03:25,637 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-24 10:03:25,643 - Starting up TCP server on localhost:52588
+2025-09-24 10:03:25,651 - Flet app has started...
+2025-09-24 10:03:25,657 - App URL: tcp://localhost:52588
+2025-09-24 10:03:25,657 - Starting Flet View app...
+2025-09-24 10:03:25,658 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 10:03:25,658 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 10:03:26,011 - App session started
+2025-09-24 10:03:29,528 - Загружено 2 нейтральных лиц
+2025-09-24 10:03:29,533 - Arduino не найдена. Проверьте подключение.
+2025-09-24 10:04:16,757 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-24 10:04:16,757 - Starting up TCP server on localhost:49368
+2025-09-24 10:04:16,764 - Flet app has started...
+2025-09-24 10:04:16,771 - App URL: tcp://localhost:49368
+2025-09-24 10:04:16,771 - Starting Flet View app...
+2025-09-24 10:04:16,771 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 10:04:16,771 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 10:04:17,102 - App session started
+2025-09-24 10:04:20,758 - Загружено 2 нейтральных лиц
+2025-09-24 10:04:20,763 - Arduino не найдена. Проверьте подключение.
+2025-09-24 10:05:07,998 - Ошибка в потоке обработки: cannot unpack non-iterable NoneType object
+2025-09-24 10:05:08,324 - Ошибка в потоке обработки: Event loop is closed
+2025-09-24 10:05:08,849 - Ошибка в потоке обработки: Event loop is closed
+2025-09-24 10:05:09,121 - exception calling callback for <Future at 0x1eb60a58bd0 state=finished returned NoneType>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-24 16:07:53,745 - Загружено 16 лиц.
+2025-09-24 16:07:55,770 - Успешно подключено к Arduino на COM3
+2025-09-24 16:07:55,808 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-24 16:07:55,811 - Starting up TCP server on localhost:60038
+2025-09-24 16:07:55,818 - Flet app has started...
+2025-09-24 16:07:55,818 - App URL: tcp://localhost:60038
+2025-09-24 16:07:55,818 - Starting Flet View app...
+2025-09-24 16:07:55,818 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 16:07:55,818 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-24 16:07:56,268 - App session started
+2025-09-24 16:08:40,939 - Загружено 16 лиц.
+2025-09-24 16:08:55,550 - Отправлено на Arduino: 1
+2025-09-24 16:09:04,935 - Отправлено на Arduino: 0
+2025-09-24 16:09:21,658 - Отправлено на Arduino: 1
+2025-09-24 16:09:23,680 - Отправлено на Arduino: 0
+2025-09-24 16:09:24,047 - Отправлено на Arduino: 1
+2025-09-24 16:09:24,180 - Отправлено на Arduino: 0
+2025-09-24 16:09:24,586 - Отправлено на Arduino: 1
+2025-09-24 16:09:24,729 - Отправлено на Arduino: 0
+2025-09-24 16:09:25,133 - Отправлено на Arduino: 1
+2025-09-24 16:09:26,473 - Отправлено на Arduino: 0
+2025-09-24 16:09:49,843 - Загружено 16 лиц.
+2025-09-24 16:10:04,697 - Отправлено на Arduino: 1
+2025-09-24 16:10:06,021 - Отправлено на Arduino: 0
+2025-09-24 16:10:06,882 - Отправлено на Arduino: 1
+2025-09-24 16:10:07,386 - Отправлено на Arduino: 0
+2025-09-24 16:10:19,061 - Отправлено на Arduino: 1
+2025-09-24 16:10:21,826 - Отправлено на Arduino: 0
+2025-09-24 16:10:23,228 - Отправлено на Arduino: 1
+2025-09-24 16:10:25,877 - Отправлено на Arduino: 0
+2025-09-24 16:10:26,368 - Отправлено на Arduino: 1
+2025-09-24 16:10:26,752 - Отправлено на Arduino: 0
+2025-09-24 16:10:27,110 - Отправлено на Arduino: 1
+2025-09-24 16:10:31,742 - Отправлено на Arduino: 0
+2025-09-24 16:10:34,294 - Отправлено на Arduino: 1
+2025-09-24 16:10:34,706 - Отправлено на Arduino: 0
+2025-09-24 16:10:35,705 - Отправлено на Arduino: 1
+2025-09-24 16:10:35,849 - Отправлено на Arduino: 0
+2025-09-25 09:21:40,210 - Загружено 18 лиц.
+2025-09-25 09:21:40,226 - Arduino не найдена. Проверьте подключение.
+2025-09-25 09:21:40,244 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-25 09:21:40,247 - Starting up TCP server on localhost:54033
+2025-09-25 09:21:40,250 - Flet app has started...
+2025-09-25 09:21:40,258 - App URL: tcp://localhost:54033
+2025-09-25 09:21:40,258 - Starting Flet View app...
+2025-09-25 09:21:40,259 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-25 09:21:40,259 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-25 09:21:40,798 - App session started
+2025-09-25 11:14:35,597 - Загружено 18 лиц.
+2025-09-25 11:14:37,628 - Успешно подключено к Arduino на COM5
+2025-09-25 11:14:37,654 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-25 11:14:37,654 - Starting up TCP server on localhost:64866
+2025-09-25 11:14:37,661 - Flet app has started...
+2025-09-25 11:14:37,668 - App URL: tcp://localhost:64866
+2025-09-25 11:14:37,668 - Starting Flet View app...
+2025-09-25 11:14:37,668 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-25 11:14:37,668 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-25 11:14:38,080 - App session started
+2025-09-25 11:23:23,725 - Загружено 18 лиц.
+2025-09-25 11:23:38,713 - Отправлено на Arduino: 1
+2025-09-25 11:23:44,470 - Отправлено на Arduino: 0
+2025-09-25 11:23:45,984 - Отправлено на Arduino: 1
+2025-09-25 11:23:53,725 - Отправлено на Arduino: 0
+2025-09-25 11:23:58,088 - Отправлено на Arduino: 1
+2025-09-25 11:23:58,229 - Отправлено на Arduino: 0
+2025-09-25 11:24:00,330 - Отправлено на Arduino: 1
+2025-09-25 11:24:02,116 - Отправлено на Arduino: 0
+2025-09-25 11:24:03,744 - Отправлено на Arduino: 1
+2025-09-25 11:24:07,515 - Отправлено на Arduino: 0
+2025-09-25 11:24:39,850 - Загружено 18 лиц.
+2025-09-25 11:24:41,860 - Успешно подключено к Arduino на COM5
+2025-09-25 11:24:41,876 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-25 11:24:41,879 - Starting up TCP server on localhost:64891
+2025-09-25 11:24:41,881 - Flet app has started...
+2025-09-25 11:24:41,892 - App URL: tcp://localhost:64891
+2025-09-25 11:24:41,892 - Starting Flet View app...
+2025-09-25 11:24:41,893 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-25 11:24:41,893 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-25 11:24:42,208 - App session started
+2025-09-25 11:25:21,214 - Загружено 18 лиц.
+2025-09-25 11:25:42,578 - Отправлено на Arduino: 1
+2025-09-25 11:25:43,501 - Отправлено на Arduino: 0
+2025-09-25 11:28:11,195 - exception calling callback for <Future at 0x1ade3be2510 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 632, in <lambda>
+    on_click=lambda e: start_webcam(
+                       ^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 388, in start_webcam
+    page.update()
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 732, in update
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-25 11:31:03,614 - Загружено 18 лиц.
+2025-09-25 11:31:05,637 - Успешно подключено к Arduino на COM5
+2025-09-25 11:31:05,652 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-25 11:31:05,655 - Starting up TCP server on localhost:64908
+2025-09-25 11:31:05,661 - Flet app has started...
+2025-09-25 11:31:05,667 - App URL: tcp://localhost:64908
+2025-09-25 11:31:05,667 - Starting Flet View app...
+2025-09-25 11:31:05,667 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-25 11:31:05,667 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-25 11:31:05,968 - App session started
+2025-09-27 08:25:48,629 - Загружено 19 лиц.
+2025-09-27 08:25:48,637 - Arduino не найдена. Проверьте подключение.
+2025-09-27 08:25:48,681 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-27 08:25:48,687 - Starting up TCP server on localhost:61974
+2025-09-27 08:25:48,698 - Flet app has started...
+2025-09-27 08:25:48,705 - App URL: tcp://localhost:61974
+2025-09-27 08:25:48,705 - Starting Flet View app...
+2025-09-27 08:25:48,706 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:25:48,706 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:26:10,922 - App session started
+2025-09-27 08:30:18,354 - Загружено 19 лиц.
+2025-09-27 08:30:18,354 - Arduino не найдена. Проверьте подключение.
+2025-09-27 08:30:18,370 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-27 08:30:18,370 - Starting up TCP server on localhost:52734
+2025-09-27 08:30:18,392 - Flet app has started...
+2025-09-27 08:30:18,394 - App URL: tcp://localhost:52734
+2025-09-27 08:30:18,394 - Starting Flet View app...
+2025-09-27 08:30:18,394 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:30:18,394 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:30:18,683 - App session started
+2025-09-27 08:30:58,742 - Загружено 19 лиц.
+2025-09-27 08:33:03,790 - exception calling callback for <Future at 0x1cb7eba2b10 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 632, in <lambda>
+    on_click=lambda e: start_webcam(
+                       ^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 388, in start_webcam
+    page.update()
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 732, in update
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-27 08:34:25,580 - Загружено 19 лиц.
+2025-09-27 08:34:25,596 - Arduino не найдена. Проверьте подключение.
+2025-09-27 08:34:25,617 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-27 08:34:25,619 - Starting up TCP server on localhost:54938
+2025-09-27 08:34:25,620 - Flet app has started...
+2025-09-27 08:34:25,627 - App URL: tcp://localhost:54938
+2025-09-27 08:34:25,627 - Starting Flet View app...
+2025-09-27 08:34:25,627 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:34:25,627 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:34:25,902 - App session started
+2025-09-27 08:34:51,991 - Загружено 19 лиц.
+2025-09-27 08:35:35,421 - socket.send() raised exception.
+2025-09-27 08:35:35,424 - socket.send() raised exception.
+2025-09-27 08:35:35,434 - socket.send() raised exception.
+2025-09-27 08:35:35,437 - socket.send() raised exception.
+2025-09-27 08:35:35,442 - socket.send() raised exception.
+2025-09-27 08:35:35,442 - socket.send() raised exception.
+2025-09-27 08:35:35,448 - socket.send() raised exception.
+2025-09-27 08:35:35,448 - socket.send() raised exception.
+2025-09-27 08:35:35,458 - socket.send() raised exception.
+2025-09-27 08:35:35,458 - socket.send() raised exception.
+2025-09-27 08:35:35,464 - socket.send() raised exception.
+2025-09-27 08:35:35,465 - socket.send() raised exception.
+2025-09-27 08:35:35,478 - socket.send() raised exception.
+2025-09-27 08:35:35,478 - socket.send() raised exception.
+2025-09-27 08:35:35,482 - socket.send() raised exception.
+2025-09-27 08:35:35,488 - socket.send() raised exception.
+2025-09-27 08:35:35,488 - socket.send() raised exception.
+2025-09-27 08:35:35,494 - socket.send() raised exception.
+2025-09-27 08:35:35,504 - socket.send() raised exception.
+2025-09-27 08:35:35,505 - socket.send() raised exception.
+2025-09-27 08:35:35,512 - socket.send() raised exception.
+2025-09-27 08:35:35,512 - socket.send() raised exception.
+2025-09-27 08:35:35,517 - socket.send() raised exception.
+2025-09-27 08:35:35,525 - socket.send() raised exception.
+2025-09-27 08:35:35,525 - socket.send() raised exception.
+2025-09-27 08:35:35,531 - socket.send() raised exception.
+2025-09-27 08:35:35,539 - socket.send() raised exception.
+2025-09-27 08:35:35,545 - socket.send() raised exception.
+2025-09-27 08:35:35,545 - socket.send() raised exception.
+2025-09-27 08:35:35,559 - socket.send() raised exception.
+2025-09-27 08:35:35,559 - socket.send() raised exception.
+2025-09-27 08:35:54,676 - Загружено 19 лиц.
+2025-09-27 08:35:54,676 - Arduino не найдена. Проверьте подключение.
+2025-09-27 08:35:54,704 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-27 08:35:54,704 - Starting up TCP server on localhost:55024
+2025-09-27 08:35:54,704 - Flet app has started...
+2025-09-27 08:35:54,704 - App URL: tcp://localhost:55024
+2025-09-27 08:35:54,704 - Starting Flet View app...
+2025-09-27 08:35:54,704 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:35:54,704 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:35:55,010 - App session started
+2025-09-27 08:36:21,076 - Загружено 19 лиц.
+2025-09-27 08:37:35,688 - Загружено 19 лиц.
+2025-09-27 08:37:49,554 - exception calling callback for <Future at 0x2118025ab50 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 632, in <lambda>
+    on_click=lambda e: start_webcam(
+                       ^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 326, in start_webcam
+    page.update()
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 732, in update
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-27 08:42:58,020 - Загружено 19 лиц.
+2025-09-27 08:43:00,039 - Успешно подключено к Arduino на COM4
+2025-09-27 08:43:00,047 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-27 08:43:00,047 - Starting up TCP server on localhost:55135
+2025-09-27 08:43:00,064 - Flet app has started...
+2025-09-27 08:43:00,069 - App URL: tcp://localhost:55135
+2025-09-27 08:43:00,069 - Starting Flet View app...
+2025-09-27 08:43:00,070 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:43:00,070 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 08:43:00,376 - App session started
+2025-09-27 08:43:25,574 - Загружено 19 лиц.
+2025-09-27 08:43:40,266 - Отправлено на Arduino: 1
+2025-09-27 08:43:46,572 - Отправлено на Arduino: 0
+2025-09-27 08:43:50,894 - Отправлено на Arduino: 1
+2025-09-27 08:43:51,313 - Отправлено на Arduino: 0
+2025-09-27 08:43:52,481 - Отправлено на Arduino: 1
+2025-09-27 08:43:54,894 - Отправлено на Arduino: 0
+2025-09-27 08:43:59,792 - Отправлено на Arduino: 1
+2025-09-27 08:44:02,598 - Отправлено на Arduino: 0
+2025-09-27 08:44:03,012 - Отправлено на Arduino: 1
+2025-09-27 08:44:03,155 - Отправлено на Arduino: 0
+2025-09-27 08:44:19,920 - Отправлено на Arduino: 1
+2025-09-27 08:44:23,495 - Отправлено на Arduino: 0
+2025-09-27 08:44:23,895 - Отправлено на Arduino: 1
+2025-09-27 08:44:24,299 - Отправлено на Arduino: 0
+2025-09-27 08:44:28,174 - Отправлено на Arduino: 1
+2025-09-27 08:44:30,237 - Отправлено на Arduino: 0
+2025-09-27 08:44:34,733 - Отправлено на Arduino: 1
+2025-09-27 08:44:35,977 - Отправлено на Arduino: 0
+2025-09-27 08:44:39,214 - Отправлено на Arduino: 1
+2025-09-27 08:44:44,445 - Отправлено на Arduino: 0
+2025-09-27 08:44:44,808 - Отправлено на Arduino: 1
+2025-09-27 08:44:56,050 - Отправлено на Arduino: 0
+2025-09-27 08:44:56,432 - Отправлено на Arduino: 1
+2025-09-27 08:44:58,042 - Отправлено на Arduino: 0
+2025-09-27 08:45:09,290 - Отправлено на Arduino: 1
+2025-09-27 08:45:09,737 - Отправлено на Arduino: 0
+2025-09-27 08:45:10,140 - Отправлено на Arduino: 1
+2025-09-27 08:45:10,589 - Отправлено на Arduino: 0
+2025-09-27 08:45:14,084 - Отправлено на Arduino: 1
+2025-09-27 08:45:14,220 - Отправлено на Arduino: 0
+2025-09-27 08:45:14,723 - Отправлено на Arduino: 1
+2025-09-27 08:45:16,556 - Отправлено на Arduino: 0
+2025-09-27 10:53:25,321 - Отправлено на Arduino: 1
+2025-09-27 10:53:27,349 - Отправлено на Arduino: 0
+2025-09-27 10:53:28,973 - Отправлено на Arduino: 1
+2025-09-27 10:53:29,393 - Отправлено на Arduino: 0
+2025-09-27 10:53:29,796 - Отправлено на Arduino: 1
+2025-09-27 10:53:31,484 - Отправлено на Arduino: 0
+2025-09-27 11:05:10,027 - Отправлено на Arduino: 1
+2025-09-27 11:05:17,343 - Отправлено на Arduino: 0
+2025-09-27 11:05:17,726 - Отправлено на Arduino: 1
+2025-09-27 11:05:18,587 - Отправлено на Arduino: 0
+2025-09-27 11:05:19,005 - Отправлено на Arduino: 1
+2025-09-27 11:05:20,310 - Отправлено на Arduino: 0
+2025-09-27 11:05:20,731 - Отправлено на Arduino: 1
+2025-09-27 11:05:21,575 - Отправлено на Arduino: 0
+2025-09-27 11:05:38,156 - Отправлено на Arduino: 1
+2025-09-27 11:05:40,275 - Отправлено на Arduino: 0
+2025-09-27 11:05:40,683 - Отправлено на Arduino: 1
+2025-09-27 11:05:41,130 - Отправлено на Arduino: 0
+2025-09-27 11:05:41,912 - Отправлено на Arduino: 1
+2025-09-27 11:05:42,495 - Отправлено на Arduino: 0
+2025-09-27 11:05:48,593 - Отправлено на Arduino: 1
+2025-09-27 11:05:52,296 - Отправлено на Arduino: 0
+2025-09-27 11:19:41,553 - Отправлено на Arduino: 1
+2025-09-27 11:19:42,506 - Отправлено на Arduino: 0
+2025-09-27 11:19:43,690 - Отправлено на Arduino: 1
+2025-09-27 11:19:44,136 - Отправлено на Arduino: 0
+2025-09-27 11:21:00,635 - Отправлено на Arduino: 1
+2025-09-27 11:21:01,084 - Отправлено на Arduino: 0
+2025-09-27 11:21:03,339 - Отправлено на Arduino: 1
+2025-09-27 11:21:17,304 - Отправлено на Arduino: 0
+2025-09-27 11:21:18,195 - Отправлено на Arduino: 1
+2025-09-27 11:21:18,589 - Отправлено на Arduino: 0
+2025-09-27 11:21:28,649 - Отправлено на Arduino: 1
+2025-09-27 11:21:29,431 - Отправлено на Arduino: 0
+2025-09-27 11:21:29,799 - Отправлено на Arduino: 1
+2025-09-27 11:21:30,205 - Отправлено на Arduino: 0
+2025-09-27 11:21:32,174 - Отправлено на Arduino: 1
+2025-09-27 11:21:32,621 - Отправлено на Arduino: 0
+2025-09-27 11:21:33,000 - Отправлено на Arduino: 1
+2025-09-27 11:21:33,430 - Отправлено на Arduino: 0
+2025-09-27 11:21:33,830 - Отправлено на Arduino: 1
+2025-09-27 11:21:35,120 - Отправлено на Arduino: 0
+2025-09-27 11:21:39,172 - Отправлено на Arduino: 1
+2025-09-27 11:21:40,360 - Отправлено на Arduino: 0
+2025-09-27 11:21:44,899 - Отправлено на Arduino: 1
+2025-09-27 11:21:45,314 - Отправлено на Arduino: 0
+2025-09-27 11:26:03,596 - Отправлено на Arduino: 1
+2025-09-27 11:26:04,477 - Отправлено на Arduino: 0
+2025-09-27 11:26:06,303 - Отправлено на Arduino: 1
+2025-09-27 11:26:12,838 - Отправлено на Arduino: 0
+2025-09-27 11:30:12,009 - Отправлено на Arduino: 1
+2025-09-27 11:30:13,565 - Отправлено на Arduino: 0
+2025-09-27 11:30:13,956 - Отправлено на Arduino: 1
+2025-09-27 11:30:14,784 - Отправлено на Arduino: 0
+2025-09-27 11:41:11,158 - Отправлено на Arduino: 1
+2025-09-27 11:41:11,950 - Отправлено на Arduino: 0
+2025-09-27 11:42:40,818 - Отправлено на Arduino: 1
+2025-09-27 11:42:42,813 - Отправлено на Arduino: 0
+2025-09-27 11:42:43,189 - Отправлено на Arduino: 1
+2025-09-27 11:42:44,442 - Отправлено на Arduino: 0
+2025-09-27 11:42:53,104 - Отправлено на Arduino: 1
+2025-09-27 11:42:53,900 - Отправлено на Arduino: 0
+2025-09-27 11:42:56,244 - Отправлено на Arduino: 1
+2025-09-27 11:42:56,665 - Отправлено на Arduino: 0
+2025-09-27 11:56:41,083 - Отправлено на Arduino: 1
+2025-09-27 11:56:41,947 - Отправлено на Arduino: 0
+2025-09-27 11:56:45,489 - Отправлено на Arduino: 1
+2025-09-27 11:56:45,897 - Отправлено на Arduino: 0
+2025-09-27 11:56:46,283 - Отправлено на Arduino: 1
+2025-09-27 11:56:47,899 - Отправлено на Arduino: 0
+2025-09-27 11:56:53,849 - Отправлено на Arduino: 1
+2025-09-27 11:56:55,423 - Отправлено на Arduino: 0
+2025-09-27 11:58:13,164 - Отправлено на Arduino: 1
+2025-09-27 11:58:13,975 - Отправлено на Arduino: 0
+2025-09-27 11:58:14,373 - Отправлено на Arduino: 1
+2025-09-27 11:58:14,813 - Отправлено на Arduino: 0
+2025-09-27 11:58:23,659 - Отправлено на Arduino: 1
+2025-09-27 11:58:24,449 - Отправлено на Arduino: 0
+2025-09-27 11:58:52,361 - Отправлено на Arduino: 1
+2025-09-27 11:58:52,770 - Отправлено на Arduino: 0
+2025-09-27 11:58:53,151 - Отправлено на Arduino: 1
+2025-09-27 11:58:53,262 - Отправлено на Arduino: 0
+2025-09-27 11:58:54,144 - Отправлено на Arduino: 1
+2025-09-27 11:58:54,254 - Отправлено на Arduino: 0
+2025-09-27 11:59:01,394 - Отправлено на Arduino: 1
+2025-09-27 11:59:01,502 - Отправлено на Arduino: 0
+2025-09-27 11:59:05,310 - Отправлено на Arduino: 1
+2025-09-27 11:59:05,737 - Отправлено на Arduino: 0
+2025-09-27 11:59:06,534 - Отправлено на Arduino: 1
+2025-09-27 11:59:07,352 - Отправлено на Arduino: 0
+2025-09-27 12:56:08,687 - Отправлено на Arduino: 1
+2025-09-27 12:56:09,108 - Отправлено на Arduino: 0
+2025-09-27 13:04:25,994 - Отправлено на Arduino: 1
+2025-09-27 13:04:26,398 - Отправлено на Arduino: 0
+2025-09-27 13:06:32,097 - Отправлено на Arduino: 1
+2025-09-27 13:06:32,494 - Отправлено на Arduino: 0
+2025-09-27 13:06:42,464 - Отправлено на Arduino: 1
+2025-09-27 13:06:42,856 - Отправлено на Arduino: 0
+2025-09-27 13:06:43,622 - Отправлено на Arduino: 1
+2025-09-27 13:06:46,693 - Отправлено на Arduino: 0
+2025-09-27 13:07:30,682 - Отправлено на Arduino: 1
+2025-09-27 13:07:31,460 - Отправлено на Arduino: 0
+2025-09-27 13:07:31,864 - Отправлено на Arduino: 1
+2025-09-27 13:07:32,661 - Отправлено на Arduino: 0
+2025-09-27 13:07:33,817 - Отправлено на Arduino: 1
+2025-09-27 13:07:34,258 - Отправлено на Arduino: 0
+2025-09-27 13:07:34,640 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:34,760 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:40,169 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:40,963 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:41,352 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:47,847 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:48,220 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:52,552 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:53,403 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:53,509 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:54,237 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:54,344 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:54,829 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:57,245 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:57,632 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:58,052 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:07:58,446 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:08:01,597 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:08:05,427 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:08:05,533 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:34,108 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:34,499 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:42,450 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:43,239 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:43,634 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:44,430 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:50,339 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:54,146 - Ошибка отправки на Arduino: WriteFile failed (PermissionError(13, 'Отказано в доступе.', None, 5))
+2025-09-27 13:09:58,483 - socket.send() raised exception.
+2025-09-27 13:09:58,491 - socket.send() raised exception.
+2025-09-27 13:09:58,497 - socket.send() raised exception.
+2025-09-27 13:09:58,502 - socket.send() raised exception.
+2025-09-27 13:09:58,528 - socket.send() raised exception.
+2025-09-27 13:09:58,529 - socket.send() raised exception.
+2025-09-27 13:09:58,537 - socket.send() raised exception.
+2025-09-27 13:09:58,547 - socket.send() raised exception.
+2025-09-27 13:09:58,553 - socket.send() raised exception.
+2025-09-27 13:09:58,568 - socket.send() raised exception.
+2025-09-27 13:09:58,568 - socket.send() raised exception.
+2025-09-27 13:09:58,571 - socket.send() raised exception.
+2025-09-27 13:09:58,596 - socket.send() raised exception.
+2025-09-27 13:09:58,601 - socket.send() raised exception.
+2025-09-27 13:09:58,736 - Ошибка чтения лога: Event loop is closed
+2025-09-27 13:10:02,759 - exception calling callback for <Future at 0x2370077b510 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 620, in <lambda>
+    update_camera_list(),
+    ^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainIIPCAM2.py", line 601, in update_camera_list
+    page.update()
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 732, in update
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-09-27 13:10:21,094 - Загружено 19 лиц.
+2025-09-27 13:10:23,103 - Успешно подключено к Arduino на COM5
+2025-09-27 13:10:23,128 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-09-27 13:10:23,128 - Starting up TCP server on localhost:56414
+2025-09-27 13:10:23,135 - Flet app has started...
+2025-09-27 13:10:23,142 - App URL: tcp://localhost:56414
+2025-09-27 13:10:23,142 - Starting Flet View app...
+2025-09-27 13:10:23,142 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 13:10:23,142 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-09-27 13:10:23,457 - App session started
+2025-10-07 09:57:29,502 - Загружено 19 лиц.
+2025-10-07 09:57:29,508 - Arduino не найдена. Проверьте подключение.
+2025-10-07 09:57:29,526 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-07 09:57:29,529 - Starting up TCP server on localhost:63497
+2025-10-07 09:57:29,539 - Flet app has started...
+2025-10-07 09:57:29,545 - App URL: tcp://localhost:63497
+2025-10-07 09:57:29,545 - Starting Flet View app...
+2025-10-07 09:57:29,546 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 09:57:29,546 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 09:57:30,145 - App session started
+2025-10-07 09:58:22,293 - Загружено 19 лиц.
+2025-10-07 09:58:22,309 - Arduino не найдена. Проверьте подключение.
+2025-10-07 09:58:22,326 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-07 09:58:22,330 - Starting up TCP server on localhost:58757
+2025-10-07 09:58:22,333 - Flet app has started...
+2025-10-07 09:58:22,341 - App URL: tcp://localhost:58757
+2025-10-07 09:58:22,341 - Starting Flet View app...
+2025-10-07 09:58:22,341 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 09:58:22,342 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 09:58:22,654 - App session started
+2025-10-07 09:59:18,754 - Загружено 19 лиц.
+2025-10-07 10:00:40,571 - socket.send() raised exception.
+2025-10-07 10:00:40,579 - socket.send() raised exception.
+2025-10-07 10:00:40,587 - socket.send() raised exception.
+2025-10-07 10:00:40,587 - socket.send() raised exception.
+2025-10-07 10:00:40,591 - socket.send() raised exception.
+2025-10-07 10:00:40,608 - socket.send() raised exception.
+2025-10-07 10:00:40,614 - socket.send() raised exception.
+2025-10-07 10:00:40,617 - socket.send() raised exception.
+2025-10-07 10:00:40,622 - socket.send() raised exception.
+2025-10-07 10:00:40,622 - socket.send() raised exception.
+2025-10-07 10:00:40,622 - socket.send() raised exception.
+2025-10-07 10:00:40,622 - socket.send() raised exception.
+2025-10-07 10:00:40,630 - socket.send() raised exception.
+2025-10-07 10:00:40,630 - socket.send() raised exception.
+2025-10-07 10:00:40,635 - socket.send() raised exception.
+2025-10-07 10:00:40,635 - socket.send() raised exception.
+2025-10-07 10:00:40,638 - socket.send() raised exception.
+2025-10-07 10:00:40,644 - socket.send() raised exception.
+2025-10-07 10:00:40,648 - socket.send() raised exception.
+2025-10-07 10:00:40,649 - socket.send() raised exception.
+2025-10-07 10:00:40,654 - socket.send() raised exception.
+2025-10-07 10:00:40,659 - socket.send() raised exception.
+2025-10-07 10:00:40,663 - socket.send() raised exception.
+2025-10-07 10:00:40,664 - socket.send() raised exception.
+2025-10-07 10:00:40,669 - socket.send() raised exception.
+2025-10-07 10:00:40,670 - socket.send() raised exception.
+2025-10-07 10:00:40,670 - socket.send() raised exception.
+2025-10-07 10:00:40,678 - socket.send() raised exception.
+2025-10-07 10:00:40,682 - socket.send() raised exception.
+2025-10-07 10:00:40,684 - socket.send() raised exception.
+2025-10-07 10:00:40,690 - socket.send() raised exception.
+2025-10-07 10:00:40,691 - socket.send() raised exception.
+2025-10-07 10:00:40,691 - socket.send() raised exception.
+2025-10-07 10:00:40,704 - socket.send() raised exception.
+2025-10-07 10:00:40,705 - socket.send() raised exception.
+2025-10-07 10:00:40,712 - socket.send() raised exception.
+2025-10-07 10:00:40,712 - socket.send() raised exception.
+2025-10-07 10:00:42,044 - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-07 10:00:42,044 - Starting up TCP server on localhost:50667
+2025-10-07 10:00:42,051 - Flet app has started...
+2025-10-07 10:00:42,058 - App URL: tcp://localhost:50667
+2025-10-07 10:00:42,058 - Starting Flet View app...
+2025-10-07 10:00:42,058 - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:00:42,058 - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:00:42,396 - App session started
+2025-10-07 10:00:44,162 - Загружено 0 нейтральных лиц
+2025-10-07 10:00:44,167 - Arduino не найдена. Проверьте подключение.
+2025-10-07 10:00:48,287 - socket.send() raised exception.
+2025-10-07 10:00:48,301 - socket.send() raised exception.
+2025-10-07 10:00:48,303 - socket.send() raised exception.
+2025-10-07 10:00:48,328 - socket.send() raised exception.
+2025-10-07 10:00:48,336 - socket.send() raised exception.
+2025-10-07 10:00:48,341 - socket.send() raised exception.
+2025-10-07 10:00:48,357 - socket.send() raised exception.
+2025-10-07 10:01:00,445 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:01:00,461 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:01:16,936 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:01:16,936 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:01:16,964 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-07 10:01:16,964 - INFO - Starting up TCP server on localhost:50702
+2025-10-07 10:01:16,973 - INFO - Flet app has started...
+2025-10-07 10:01:16,977 - INFO - App URL: tcp://localhost:50702
+2025-10-07 10:01:16,977 - INFO - Starting Flet View app...
+2025-10-07 10:01:16,978 - INFO - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:01:16,978 - INFO - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:01:17,269 - INFO - App session started
+2025-10-07 10:01:18,663 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:01:18,667 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:01:34,800 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:01:34,804 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:03:59,745 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:04:20,335 - INFO - 2025-10-07 10:04:20 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:04:21,103 - INFO - 2025-10-07 10:04:21 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:04:22,089 - INFO - 2025-10-07 10:04:22 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:04:26,549 - INFO - 2025-10-07 10:04:26 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:04:34,403 - INFO - 2025-10-07 10:04:34 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:04:38,287 - INFO - 2025-10-07 10:04:38 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:04:40,809 - INFO - 2025-10-07 10:04:40 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:04:46,671 - INFO - 2025-10-07 10:04:46 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:05:04,987 - INFO - 2025-10-07 10:05:04 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:05:14,109 - INFO - 2025-10-07 10:05:14 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:07:34,944 - INFO - 2025-10-07 10:07:34 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:07:36,212 - INFO - 2025-10-07 10:07:36 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:07:46,442 - INFO - 2025-10-07 10:07:46 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 10:08:11,847 - INFO - 2025-10-07 10:08:11 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:08:22,398 - INFO - 2025-10-07 10:08:22 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:08:33,033 - INFO - 2025-10-07 10:08:33 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:08:43,715 - INFO - 2025-10-07 10:08:43 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:08:54,355 - INFO - 2025-10-07 10:08:54 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:09:37,115 - INFO - 2025-10-07 10:09:37 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:09:47,790 - INFO - 2025-10-07 10:09:47 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:10:09,338 - INFO - 2025-10-07 10:10:09 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:10:20,041 - INFO - 2025-10-07 10:10:20 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 10:11:14,816 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:11:14,821 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:11:30,312 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:11:30,315 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:34:04,051 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:34:04,051 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:34:20,105 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:34:20,110 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:34:20,138 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-07 10:34:20,140 - INFO - Starting up TCP server on localhost:49967
+2025-10-07 10:34:20,144 - INFO - Flet app has started...
+2025-10-07 10:34:20,150 - INFO - App URL: tcp://localhost:49967
+2025-10-07 10:34:20,150 - INFO - Starting Flet View app...
+2025-10-07 10:34:20,150 - INFO - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:34:20,150 - INFO - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:34:20,479 - INFO - App session started
+2025-10-07 10:34:22,059 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:34:22,064 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:34:38,978 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:34:38,982 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:35:10,556 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:35:16,885 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:35:16,891 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:35:37,719 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:35:37,725 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:35:58,024 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:35:58,030 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:35:58,054 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-07 10:35:58,057 - INFO - Starting up TCP server on localhost:51446
+2025-10-07 10:35:58,067 - INFO - Flet app has started...
+2025-10-07 10:35:58,073 - INFO - App URL: tcp://localhost:51446
+2025-10-07 10:35:58,073 - INFO - Starting Flet View app...
+2025-10-07 10:35:58,074 - INFO - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:35:58,074 - INFO - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:35:58,431 - INFO - App session started
+2025-10-07 10:36:00,285 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:36:00,291 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:36:20,532 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:36:20,536 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:36:54,448 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:36:56,983 - INFO - 2025-10-07 10:36:56 - Найдено (видео): Гадыршин Дамир Рустамович.jpg
+2025-10-07 10:37:02,430 - INFO - 2025-10-07 10:37:02 - Найдено (видео): Постников Иван Алексеевич.png
+2025-10-07 10:37:32,548 - INFO - 2025-10-07 10:37:32 - Найдено (видео): Гадыршин Дамир Рустамович.jpg
+2025-10-07 10:37:44,415 - INFO - 2025-10-07 10:37:44 - Найдено (видео): Бойцова А..jpg
+2025-10-07 10:37:51,892 - INFO - 2025-10-07 10:37:51 - Найдено (видео): Гадыршин Дамир Рустамович.jpg
+2025-10-07 10:37:55,592 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:37:55,597 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:05,410 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:05,759 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:07,325 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:07,666 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:10,306 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:10,372 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:10,373 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:10,630 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:12,170 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:15,595 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:17,946 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:18,009 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:18,813 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:19,904 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:21,335 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:22,705 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:22,706 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:23,052 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:23,372 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:23,436 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:23,438 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:25,152 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:25,152 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:25,153 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:38:25,625 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:50,261 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:38:50,267 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:39:08,517 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:39:08,523 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:39:08,543 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-07 10:39:08,545 - INFO - Starting up TCP server on localhost:55436
+2025-10-07 10:39:08,553 - INFO - Flet app has started...
+2025-10-07 10:39:08,558 - INFO - App URL: tcp://localhost:55436
+2025-10-07 10:39:08,558 - INFO - Starting Flet View app...
+2025-10-07 10:39:08,559 - INFO - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:39:08,559 - INFO - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 10:39:08,893 - INFO - App session started
+2025-10-07 10:39:10,586 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:39:10,591 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:39:28,561 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:39:28,565 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:39:54,687 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:39:55,102 - INFO - 2025-10-07 10:39:55 - Найдено (файл): Гадыршин Дамир Рустамович.jpg
+2025-10-07 10:40:19,299 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:40:25,620 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:40:25,624 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:40:41,200 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:40:41,203 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 10:41:11,422 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:41:41,539 - WARNING - RTSP: не удалось подключиться, повтор через 5 с
+2025-10-07 10:42:13,925 - INFO - Dlib модели успешно загружены.
+2025-10-07 10:42:13,929 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 10:42:16,795 - WARNING - RTSP: не удалось подключиться, повтор через 5 с
+2025-10-07 10:42:28,374 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 10:42:28,377 - INFO - Arduino не найдена. Переходим в режим эмуляции.
