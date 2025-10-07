@@ -1,4 +1,4 @@
-# RemainIIPCAM_with_Smile.py
+
 import base64
 import os
 from datetime import datetime
@@ -746,7 +746,8 @@ def start_interface(page: ft.Page):
 
     rtsp_button = ft.ElevatedButton(
         text="IP-камера (RTSP)", icon=ft.Icons.SETTINGS_ETHERNET, width=200, height=60,
-        on_click=lambda e: start_rtsp_camera(page=page, image_area=image_area, match_area=match_area, status_text=status_text, exit_button=exit_button)
+        on_click=lambda e: start_rtsp_camera(page=page, image_area=image_area, match_area=match_area, 
+                                             status_text=status_text, exit_button=exit_button)
     )
 
     image_button = ft.ElevatedButton(
@@ -811,11 +812,13 @@ def start_interface(page: ft.Page):
         match_area
     ], spacing=10, width=360)
 
-    middle_column = ft.Column([ft.Text("Видео с камеры", size=18, color=ft.Colors.WHITE), image_area], alignment=ft.MainAxisAlignment.CENTER, expand=True)
+    middle_column = ft.Column([ft.Text("Видео с камеры", size=18, color=ft.Colors.WHITE), 
+                               image_area], alignment=ft.MainAxisAlignment.CENTER, expand=True)
 
     right_column = ft.Column([ft.Text("Журнал событий", size=18, color=ft.Colors.WHITE), log_container], width=400)
 
-    page.add(ft.Row([left_column, ft.VerticalDivider(width=20), middle_column, ft.VerticalDivider(width=20), right_column], spacing=20, expand=True))
+    page.add(ft.Row([left_column, ft.VerticalDivider(width=20), middle_column, 
+                     ft.VerticalDivider(width=20), right_column], spacing=20, expand=True))
 
 # ---------------- Запуск приложения ----------------
 if __name__ == "__main__":

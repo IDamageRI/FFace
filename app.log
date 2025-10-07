@@ -1454,3 +1454,80 @@ RuntimeError: Event loop is closed
 2025-10-07 10:42:16,795 - WARNING - RTSP: не удалось подключиться, повтор через 5 с
 2025-10-07 10:42:28,374 - INFO - Загружено 19 дескрипторов из face_bd
 2025-10-07 10:42:28,377 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 11:42:13,041 - INFO - Dlib модели успешно загружены.
+2025-10-07 11:42:13,047 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 11:42:28,432 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 11:42:28,437 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 11:42:28,467 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-07 11:42:28,472 - INFO - Starting up TCP server on localhost:50125
+2025-10-07 11:42:28,479 - INFO - Flet app has started...
+2025-10-07 11:42:28,486 - INFO - App URL: tcp://localhost:50125
+2025-10-07 11:42:28,486 - INFO - Starting Flet View app...
+2025-10-07 11:42:28,486 - INFO - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 11:42:28,486 - INFO - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-07 11:42:28,807 - INFO - App session started
+2025-10-07 11:42:30,287 - INFO - Dlib модели успешно загружены.
+2025-10-07 11:42:30,291 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 11:42:46,144 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 11:42:46,147 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 11:43:26,367 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 11:43:52,389 - INFO - 2025-10-07 11:43:52 - Таймаут улыбки: Постников Иван Алексеевич
+2025-10-07 11:44:02,972 - INFO - 2025-10-07 11:44:02 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 11:44:08,697 - INFO - 2025-10-07 11:44:08 - Успешная аутентификация: Постников Иван Алексеевич с улыбкой
+2025-10-07 11:44:09,361 - INFO - 2025-10-07 11:44:09 - Успешная аутентификация: Постников Иван Алексеевич с улыбкой
+2025-10-07 11:44:23,305 - INFO - 2025-10-07 11:44:23 - Таймаут улыбки: Постников Иван Алексеевич
+2025-10-07 11:44:33,849 - INFO - 2025-10-07 11:44:33 - Таймаут улыбки: Постников Иван Алексеевич
+2025-10-07 11:44:51,989 - INFO - 2025-10-07 11:44:51 - Таймаут улыбки: Гадыршин Дамир Рустамович
+2025-10-07 11:45:06,973 - INFO - 2025-10-07 11:45:06 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 11:45:07,738 - INFO - 2025-10-07 11:45:07 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 11:45:16,210 - INFO - 2025-10-07 11:45:16 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 11:45:22,400 - INFO - 2025-10-07 11:45:22 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 11:45:26,288 - INFO - 2025-10-07 11:45:26 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 11:59:23,615 - INFO - 2025-10-07 11:59:23 - Успешная аутентификация: Гадыршин Дамир Рустамович с улыбкой
+2025-10-07 11:59:33,919 - INFO - Dlib модели успешно загружены.
+2025-10-07 11:59:33,924 - INFO - Каскад улыбки загружен успешно.
+2025-10-07 11:59:50,520 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-07 11:59:50,524 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-07 11:59:50,527 - ERROR - exception calling callback for <Future at 0x1a7cc4496d0 state=finished raised RuntimeError>
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 903, in wrapper
+    handler(*args)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainFENIX.py", line 721, in <lambda>
+    on_click=lambda e: exit_mode(page)
+                       ^^^^^^^^^^^^^^^
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainFENIX.py", line 665, in exit_mode
+    start_interface(page)
+  File "c:\Users\Hasee\PycharmProjects\Face-ID-main\RemainFENIX.py", line 818, in start_interface
+    page.add(ft.Row([left_column, ft.VerticalDivider(width=20), middle_column, ft.VerticalDivider(width=20), right_column], spacing=20, expand=True))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 740, in add
+    r = self.__update(self)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\core\page.py", line 800, in __update
+    results = self.__conn.send_commands(self._session_id, commands).results
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 172, in send_commands
+    self.__send(ClientMessage(ClientActions.PAGE_CONTROLS_BATCH, messages))
+  File "C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet\flet_socket_server.py", line 178, in __send
+    self.__loop.call_soon_threadsafe(self.__send_queue.put_nowait, j)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 340, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\futures.py", line 401, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 803, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 519, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2025-10-07 11:59:50,528 - ERROR - update_logs_loop error: 
