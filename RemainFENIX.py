@@ -15,6 +15,19 @@ import threading
 from queue import Queue, Empty
 import logging
 import urllib.request
+import sys
+import subprocess
+
+# Автоматически определяем корень проекта & догружаем модуль
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+required_libs = ["cv2", "flet", "numpy", "PIL", "dlib", "scipy", "serial"]
+for lib in required_libs:
+    try:
+        __import__(lib)
+    except ImportError:
+        print(f"[!] Устанавливаю отсутствующий модуль: {lib}")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", lib])
+
 
 # ---------------- Конфигурация и логирование ----------------
 logging.basicConfig(
@@ -24,15 +37,16 @@ logging.basicConfig(
 )
 
 # Файлы/папки/модели
-shape_predictor_path = 'face_model/shape_predictor_68_face_landmarks.dat'
-face_rec_model_path = 'face_model/dlib_face_recognition_resnet_model_v1.dat'
-smile_cascade_path = 'haarcascade_smile.xml'  # Haar каскад для улыбки (скачаем при необходимости)
+# Все пути теперь от BASE_DIR:
+shape_predictor_path = os.path.join(BASE_DIR, 'face_model', 'shape_predictor_68_face_landmarks.dat')
+face_rec_model_path = os.path.join(BASE_DIR, 'face_model', 'dlib_face_recognition_resnet_model_v1.dat')
+smile_cascade_path = os.path.join(BASE_DIR, 'haarcascade_smile.xml')# Haar каскад для улыбки (скачаем при необходимости)
+neutral_faces_path = os.path.join(BASE_DIR, 'face_bd', 'neutral')# нейтральные фото (для демонстрации/эталонов)
+smiling_faces_path = os.path.join(BASE_DIR, 'face_bd', 'smiling')# улыбающиеся эталоны
+log_file = os.path.join(BASE_DIR, 'detection_log.txt')
 
 # Основная БД лиц (фото для идентификации)
-base_path = 'face_bd'         # основной каталог с эталонными изображениями (имена файлов -> identity)
-neutral_faces_path = 'neutral'    # нейтральные фото (для демонстрации/эталонов)
-smiling_faces_path = 'smiling'    # улыбающиеся эталоны
-log_file = 'detection_log.txt'
+base_path = 'face_bd'         
 
 # RTSP URL (по умолчанию, редактируй в интерфейсе если нужно)
 rtsp_url = "rtsp://admin:admin123@192.168.0.2:554/cam/realmonitor?channel=1&subtype=0"
