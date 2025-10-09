@@ -1648,3 +1648,129 @@ RuntimeError: Event loop is closed
 2025-10-09 09:37:33,992 - INFO - App session started
 2025-10-09 09:37:35,431 - INFO - Dlib модели успешно загружены.
 2025-10-09 09:37:35,436 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 11:01:11,883 - INFO - Dlib модели успешно загружены.
+2025-10-09 11:01:11,899 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 11:01:11,899 - ERROR - Ошибка при обработке face_bd\Anatoly.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,899 - ERROR - Ошибка при обработке face_bd\Bolgova.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,914 - ERROR - Ошибка при обработке face_bd\Eva.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,914 - ERROR - Ошибка при обработке face_bd\Gorgeev.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,914 - ERROR - Ошибка при обработке face_bd\Kachok.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,914 - ERROR - Ошибка при обработке face_bd\Kolyan.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,930 - ERROR - Ошибка при обработке face_bd\Man-SHOKED.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,930 - ERROR - Ошибка при обработке face_bd\Man.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,930 - ERROR - Ошибка при обработке face_bd\Trump.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,930 - ERROR - Ошибка при обработке face_bd\Бойцова А..jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,946 - ERROR - Ошибка при обработке face_bd\Гадыршин Дамир Рустамович.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:11,946 - ERROR - Ошибка при обработке face_bd\Дзюба А.А.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:12,026 - ERROR - Ошибка при обработке face_bd\Злобин Владимир Сергеевич.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:12,041 - ERROR - Ошибка при обработке face_bd\Золотарев Роман.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:12,057 - ERROR - Ошибка при обработке face_bd\Исаев Олег Викторович.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:12,067 - ERROR - Ошибка при обработке face_bd\Миркин Сергей.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:12,073 - ERROR - Ошибка при обработке face_bd\Нейцель Сергей Викторович.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:12,073 - ERROR - Ошибка при обработке face_bd\Постников Иван Алексеевич.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:12,091 - ERROR - Ошибка при обработке face_bd\Щербаков Сергей Валерьевич.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:12,091 - INFO - Загружено 0 дескрипторов из face_bd
+2025-10-09 11:01:12,091 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-09 11:01:12,091 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-09 11:01:12,091 - INFO - Starting up TCP server on localhost:50531
+2025-10-09 11:01:12,107 - INFO - Flet app has started...
+2025-10-09 11:01:19,444 - INFO - App URL: tcp://localhost:50531
+2025-10-09 11:01:19,444 - INFO - Starting Flet View app...
+2025-10-09 11:01:19,444 - INFO - Looking for Flet executable at: C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 11:01:19,444 - INFO - Flet View found in: C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 11:01:20,290 - INFO - App session started
+2025-10-09 11:01:21,497 - INFO - Dlib модели успешно загружены.
+2025-10-09 11:01:21,501 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 11:01:21,505 - ERROR - Ошибка при обработке face_bd\Anatoly.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,508 - ERROR - Ошибка при обработке face_bd\Bolgova.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,512 - ERROR - Ошибка при обработке face_bd\Eva.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,515 - ERROR - Ошибка при обработке face_bd\Gorgeev.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,517 - ERROR - Ошибка при обработке face_bd\Kachok.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,519 - ERROR - Ошибка при обработке face_bd\Kolyan.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,523 - ERROR - Ошибка при обработке face_bd\Man-SHOKED.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,527 - ERROR - Ошибка при обработке face_bd\Man.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,528 - ERROR - Ошибка при обработке face_bd\Trump.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,532 - ERROR - Ошибка при обработке face_bd\Бойцова А..jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,536 - ERROR - Ошибка при обработке face_bd\Гадыршин Дамир Рустамович.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,542 - ERROR - Ошибка при обработке face_bd\Дзюба А.А.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,619 - ERROR - Ошибка при обработке face_bd\Злобин Владимир Сергеевич.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,623 - ERROR - Ошибка при обработке face_bd\Золотарев Роман.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,636 - ERROR - Ошибка при обработке face_bd\Исаев Олег Викторович.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,640 - ERROR - Ошибка при обработке face_bd\Миркин Сергей.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,650 - ERROR - Ошибка при обработке face_bd\Нейцель Сергей Викторович.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,652 - ERROR - Ошибка при обработке face_bd\Постников Иван Алексеевич.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,653 - ERROR - Ошибка при обработке face_bd\Щербаков Сергей Валерьевич.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:01:21,653 - INFO - Загружено 0 дескрипторов из face_bd
+2025-10-09 11:01:21,656 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-09 11:01:23,372 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,372 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,388 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,388 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,388 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,388 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,416 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,416 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,422 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,428 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,428 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,428 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,442 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,454 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,454 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,466 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,473 - WARNING - socket.send() raised exception.
+2025-10-09 11:01:23,473 - WARNING - socket.send() raised exception.
+2025-10-09 11:12:56,064 - INFO - Dlib модели успешно загружены.
+2025-10-09 11:12:56,064 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 11:12:56,080 - ERROR - Ошибка при обработке face_bd\Anatoly.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,080 - ERROR - Ошибка при обработке face_bd\Bolgova.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,080 - ERROR - Ошибка при обработке face_bd\Eva.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,080 - ERROR - Ошибка при обработке face_bd\Gorgeev.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,096 - ERROR - Ошибка при обработке face_bd\Kachok.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,096 - ERROR - Ошибка при обработке face_bd\Kolyan.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,096 - ERROR - Ошибка при обработке face_bd\Man-SHOKED.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,096 - ERROR - Ошибка при обработке face_bd\Man.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,096 - ERROR - Ошибка при обработке face_bd\Trump.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,096 - ERROR - Ошибка при обработке face_bd\Бойцова А..jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,112 - ERROR - Ошибка при обработке face_bd\Гадыршин Дамир Рустамович.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,112 - ERROR - Ошибка при обработке face_bd\Дзюба А.А.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,175 - ERROR - Ошибка при обработке face_bd\Злобин Владимир Сергеевич.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,191 - ERROR - Ошибка при обработке face_bd\Золотарев Роман.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,191 - ERROR - Ошибка при обработке face_bd\Исаев Олег Викторович.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,206 - ERROR - Ошибка при обработке face_bd\Миркин Сергей.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,206 - ERROR - Ошибка при обработке face_bd\Нейцель Сергей Викторович.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,206 - ERROR - Ошибка при обработке face_bd\Постников Иван Алексеевич.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,222 - ERROR - Ошибка при обработке face_bd\Щербаков Сергей Валерьевич.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:56,222 - INFO - Загружено 0 дескрипторов из face_bd
+2025-10-09 11:12:56,222 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-09 11:12:56,222 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-09 11:12:56,222 - INFO - Starting up TCP server on localhost:64660
+2025-10-09 11:12:56,222 - INFO - Flet app has started...
+2025-10-09 11:12:56,238 - INFO - App URL: tcp://localhost:64660
+2025-10-09 11:12:56,238 - INFO - Starting Flet View app...
+2025-10-09 11:12:56,238 - INFO - Looking for Flet executable at: C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 11:12:56,238 - INFO - Flet View found in: C:\Users\Hasee\AppData\Local\Programs\Python\Python311\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 11:12:56,514 - INFO - App session started
+2025-10-09 11:12:57,689 - INFO - Dlib модели успешно загружены.
+2025-10-09 11:12:57,692 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 11:12:57,696 - ERROR - Ошибка при обработке face_bd\Anatoly.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,700 - ERROR - Ошибка при обработке face_bd\Bolgova.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,703 - ERROR - Ошибка при обработке face_bd\Eva.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,706 - ERROR - Ошибка при обработке face_bd\Gorgeev.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,708 - ERROR - Ошибка при обработке face_bd\Kachok.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,710 - ERROR - Ошибка при обработке face_bd\Kolyan.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,713 - ERROR - Ошибка при обработке face_bd\Man-SHOKED.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,717 - ERROR - Ошибка при обработке face_bd\Man.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,718 - ERROR - Ошибка при обработке face_bd\Trump.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,722 - ERROR - Ошибка при обработке face_bd\Бойцова А..jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,725 - ERROR - Ошибка при обработке face_bd\Гадыршин Дамир Рустамович.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,731 - ERROR - Ошибка при обработке face_bd\Дзюба А.А.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,803 - ERROR - Ошибка при обработке face_bd\Злобин Владимир Сергеевич.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,807 - ERROR - Ошибка при обработке face_bd\Золотарев Роман.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,819 - ERROR - Ошибка при обработке face_bd\Исаев Олег Викторович.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,823 - ERROR - Ошибка при обработке face_bd\Миркин Сергей.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,832 - ERROR - Ошибка при обработке face_bd\Нейцель Сергей Викторович.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,834 - ERROR - Ошибка при обработке face_bd\Постников Иван Алексеевич.png: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,835 - ERROR - Ошибка при обработке face_bd\Щербаков Сергей Валерьевич.jpg: Unsupported image type, must be 8bit gray or RGB image.
+2025-10-09 11:12:57,835 - INFO - Загружено 0 дескрипторов из face_bd
+2025-10-09 11:12:57,838 - INFO - Arduino не найдена. Переходим в режим эмуляции.

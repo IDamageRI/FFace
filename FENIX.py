@@ -5,7 +5,6 @@ from datetime import datetime
 import cv2
 import flet as ft
 from scipy.spatial import distance
-import dlib
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 import serial
@@ -17,7 +16,9 @@ import logging
 import urllib.request
 import sys
 import subprocess
+import dlib  
 
+#pip install dlib-19.24.1-cp311-cp311-win_amd64.whl
 # Автоматически определяем корень проекта & догружаем модуль
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 required_libs = ["cv2", "flet", "numpy", "PIL", "dlib", "scipy", "serial"]
