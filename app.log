@@ -1604,3 +1604,47 @@ Traceback (most recent call last):
     raise RuntimeError('Event loop is closed')
 RuntimeError: Event loop is closed
 2025-10-08 12:10:53,643 - ERROR - update_logs_loop error: 
+2025-10-09 08:55:14,154 - INFO - Dlib модели успешно загружены.
+2025-10-09 08:55:14,178 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 08:55:32,122 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-09 08:55:32,128 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-09 08:55:32,148 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-09 08:55:32,150 - INFO - Starting up TCP server on localhost:51676
+2025-10-09 08:55:32,159 - INFO - Flet app has started...
+2025-10-09 08:55:32,165 - INFO - App URL: tcp://localhost:51676
+2025-10-09 08:55:32,165 - INFO - Starting Flet View app...
+2025-10-09 08:55:32,167 - INFO - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 08:55:32,167 - INFO - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 08:55:32,774 - INFO - App session started
+2025-10-09 08:55:34,302 - INFO - Dlib модели успешно загружены.
+2025-10-09 08:55:34,308 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 09:31:04,816 - INFO - Dlib модели успешно загружены.
+2025-10-09 09:31:04,833 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 09:31:21,785 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-09 09:31:21,791 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-09 09:31:21,808 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-09 09:31:21,810 - INFO - Starting up TCP server on localhost:54122
+2025-10-09 09:31:21,816 - INFO - Flet app has started...
+2025-10-09 09:31:21,821 - INFO - App URL: tcp://localhost:54122
+2025-10-09 09:31:21,821 - INFO - Starting Flet View app...
+2025-10-09 09:31:21,822 - INFO - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 09:31:21,822 - INFO - Flet View found in: C:\Users\Hasee\PycharmProjects\Face-ID-main\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 09:31:22,291 - INFO - App session started
+2025-10-09 09:31:23,789 - INFO - Dlib модели успешно загружены.
+2025-10-09 09:31:23,794 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 09:31:41,295 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-09 09:31:41,295 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-09 09:37:15,853 - INFO - Dlib модели успешно загружены.
+2025-10-09 09:37:15,869 - INFO - Каскад улыбки загружен успешно.
+2025-10-09 09:37:33,383 - INFO - Загружено 19 дескрипторов из face_bd
+2025-10-09 09:37:33,383 - INFO - Arduino не найдена. Переходим в режим эмуляции.
+2025-10-09 09:37:33,405 - INFO - Assets path configured: C:\Users\Hasee\PycharmProjects\Face-ID-main\assets
+2025-10-09 09:37:33,415 - INFO - Starting up TCP server on localhost:52133
+2025-10-09 09:37:33,415 - INFO - Flet app has started...
+2025-10-09 09:37:33,427 - INFO - App URL: tcp://localhost:52133
+2025-10-09 09:37:33,427 - INFO - Starting Flet View app...
+2025-10-09 09:37:33,427 - INFO - Looking for Flet executable at: C:\Users\Hasee\PycharmProjects\Face_ID\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 09:37:33,427 - INFO - Flet View found in: C:\Users\Hasee\PycharmProjects\Face_ID\.venv\Lib\site-packages\flet_desktop\app\flet\flet.exe
+2025-10-09 09:37:33,992 - INFO - App session started
+2025-10-09 09:37:35,431 - INFO - Dlib модели успешно загружены.
+2025-10-09 09:37:35,436 - INFO - Каскад улыбки загружен успешно.
