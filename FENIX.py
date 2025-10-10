@@ -1,4 +1,4 @@
-
+ # Facial Emotion Neural Identification compleX
 import base64
 import os
 from datetime import datetime
@@ -36,6 +36,20 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
+
+# ---------------- НАСТРОЙКИ ТОЧНОСТИ ДЕТЕКЦИИ УЛЫБОК ----------------
+# Настройки для точной детекции улыбок (можно изменять для настройки чувствительности)
+SMILE_DETECTION_CONFIG = {
+    'scale_factor': 1.5,           # Масштабирующий фактор (1.1-2.0, меньше = точнее)
+    'min_neighbors': 25,            # Минимальные соседи (20-50, больше = меньше ложных срабатываний)
+    'min_size': (20, 20),          # Минимальный размер улыбки
+    'max_size': (200, 200),        # Максимальный размер улыбки
+    'confidence_threshold': 0.4,   # Порог уверенности (0.3-0.8, больше = строже)
+    'cooldown_time': 1.0,           # Время между детекциями в секундах
+    'min_face_size': 40,           # Минимальный размер области лица
+    'brightness_weight': 0.2,      # Вес анализа яркости (0.0-0.5)
+    'base_confidence_weight': 0.8  # Вес базовой уверенности (0.5-1.0)
+}
 
 # Файлы/папки/модели
 # Все пути теперь от BASE_DIR:
@@ -230,26 +244,118 @@ def compare_faces(frame, threshold=0.5):
         return None, None, False
 
 # ---------------- ДЕТЕКЦИЯ УЛЫБКИ ----------------
+# Глобальные переменные для временной фильтрации
+smile_detection_history = []
+last_smile_time = 0
+smile_cooldown = 1.5  # секунды между детекциями
+
 def detect_smile(face_roi):
-    """Обнаружение улыбки на ROI (области лица) с помощью Haar каскада.
+    """Улучшенное обнаружение улыбки с защитой от ложных срабатываний.
        Возвращает (smile_detected: bool, confidence: float 0..1).
     """
+    global smile_detection_history, last_smile_time
+    
     if smile_cascade is None:
         return False, 0.0
+    
     try:
+        # Проверка размера области лица
+        height, width = face_roi.shape[:2]
+        min_face_size = SMILE_DETECTION_CONFIG['min_face_size']
+        if height < min_face_size or width < min_face_size:
+            return False, 0.0
+        
+        # Проверка кулдауна
+        current_time = time.time()
+        cooldown_time = SMILE_DETECTION_CONFIG['cooldown_time']
+        if current_time - last_smile_time < cooldown_time:
+            return False, 0.0
+        
         gray = cv2.cvtColor(face_roi, cv2.COLOR_BGR2GRAY)
+        
+        # Используем настраиваемые параметры для детекции
         smiles = smile_cascade.detectMultiScale(
             gray,
-            scaleFactor=1.8,
-            minNeighbors=20,
-            minSize=(20, 20)
+            scaleFactor=SMILE_DETECTION_CONFIG['scale_factor'],
+            minNeighbors=SMILE_DETECTION_CONFIG['min_neighbors'],
+            minSize=SMILE_DETECTION_CONFIG['min_size'],
+            maxSize=SMILE_DETECTION_CONFIG['max_size'],
+            flags=cv2.CASCADE_SCALE_IMAGE
         )
-        smile_detected = len(smiles) > 0
-        confidence = min(len(smiles) / 5.0, 1.0)
-        return smile_detected, confidence
+        
+        # Анализ качества детекции
+        if len(smiles) == 0:
+            return False, 0.0
+        
+        # Фильтрация по размеру и позиции
+        valid_smiles = []
+        for (x, y, w, h) in smiles:
+            # Проверяем, что улыбка находится в нижней части лица
+            face_center_y = height // 2
+            if y > face_center_y and w > 25 and h > 25:
+                valid_smiles.append((x, y, w, h))
+        
+        if len(valid_smiles) == 0:
+            return False, 0.0
+        
+        # Вычисляем уверенность на основе количества и качества детекций
+        base_confidence = min(len(valid_smiles) / 3.0, 1.0)
+        
+        # Дополнительная проверка: анализируем яркость в области улыбки
+        brightness_confidence = analyze_smile_brightness(gray, valid_smiles)
+        
+        # Комбинированная уверенность с настраиваемыми весами
+        base_weight = SMILE_DETECTION_CONFIG['base_confidence_weight']
+        brightness_weight = SMILE_DETECTION_CONFIG['brightness_weight']
+        total_confidence = (base_confidence * base_weight + brightness_confidence * brightness_weight)
+        
+        # Порог уверенности для предотвращения ложных срабатываний
+        confidence_threshold = SMILE_DETECTION_CONFIG['confidence_threshold']
+        
+        smile_detected = total_confidence > confidence_threshold
+        
+        # Отладочная информация
+        logging.info(f"Smile detection: confidence={total_confidence:.2f}, threshold={confidence_threshold:.2f}, detected={smile_detected}")
+        
+        if smile_detected:
+            last_smile_time = current_time
+            # Добавляем в историю для дополнительной фильтрации
+            smile_detection_history.append(current_time)
+            # Ограничиваем историю последними 5 детекциями
+            if len(smile_detection_history) > 5:
+                smile_detection_history.pop(0)
+        
+        return smile_detected, total_confidence
+        
     except Exception as e:
         logging.error(f"detect_smile error: {e}")
         return False, 0.0
+
+def analyze_smile_brightness(gray_face, smiles):
+    """Анализирует изменение яркости в области улыбки для дополнительной проверки."""
+    try:
+        if len(smiles) == 0:
+            return 0.0
+        
+        # Берем первую (наиболее вероятную) улыбку
+        x, y, w, h = smiles[0]
+        
+        # Извлекаем область улыбки
+        smile_roi = gray_face[y:y+h, x:x+w]
+        if smile_roi.size == 0:
+            return 0.0
+        
+        # Вычисляем среднюю яркость
+        mean_brightness = np.mean(smile_roi)
+        
+        # Нормализуем яркость (улыбка обычно ярче)
+        brightness_confidence = min(mean_brightness / 150.0, 1.0)
+        
+        return brightness_confidence
+        
+    except Exception as e:
+        logging.error(f"analyze_smile_brightness error: {e}")
+        return 0.0
 
 # ---------------- Arduino ----------------
 def connect_to_arduino():
@@ -361,7 +467,7 @@ def start_rtsp_camera(page, image_area, match_area, status_text, exit_button, lo
                 if is_match:
                     current_identity = os.path.splitext(closest_face)[0]
                     status_text.value = f"Распознан: {current_identity}. Улыбнитесь!"
-                    status_text.color = ft.Colors.BLUE
+                    status_text.color = ft.colors.BLUE
                     # показать эталонное нейтральное фото, если есть
                     neutral_path = os.path.join(neutral_faces_path, closest_face)
                     if os.path.exists(neutral_path):
@@ -374,7 +480,7 @@ def start_rtsp_camera(page, image_area, match_area, status_text, exit_button, lo
                 else:
                     # Если нет совпадения, показываем статус
                     status_text.value = "Лицо не найдено"
-                    status_text.color = ft.Colors.RED
+                    status_text.color = ft.colors.RED
                     match_area.src_base64 = None
 
             elif auth_stage == "smile_verification" and current_identity:
@@ -392,7 +498,7 @@ def start_rtsp_camera(page, image_area, match_area, status_text, exit_button, lo
                     if smile_detected:
                         # Успешная двухфакторная аутентификация
                         status_text.value = f"Доступ разрешен: {current_identity}"
-                        status_text.color = ft.Colors.GREEN
+                        status_text.color = ft.colors.GREEN
                         log_detection(current_identity, "Успешная аутентификация", True)
                         # показать улыбающееся фото из папки smiling если есть
                         smile_path = os.path.join(smiling_faces_path, closest_face)
@@ -410,10 +516,14 @@ def start_rtsp_camera(page, image_area, match_area, status_text, exit_button, lo
                         auth_stage = "face_detection"
                         last_detection_time = time.time()
                     else:
+                        # Показываем уверенность для отладки
+                        remaining_time = 10 - (time.time() - smile_start_time)
+                        status_text.value = f"Улыбнитесь! Уверенность: {smile_conf:.2f}, осталось: {remaining_time:.1f}с"
+                        status_text.color = ft.colors.YELLOW
                         # Проверка таймаута
                         if time.time() - smile_start_time > 10:
                             status_text.value = "Таймаут улыбки. Попробуйте снова."
-                            status_text.color = ft.Colors.ORANGE
+                            status_text.color = ft.colors.ORANGE
                             log_detection(current_identity, "Таймаут улыбки", False)
                             current_identity = None
                             auth_stage = "face_detection"
@@ -424,7 +534,7 @@ def start_rtsp_camera(page, image_area, match_area, status_text, exit_button, lo
                     # Если лицо перестало быть видимым — отменяем стадию
                     if time.time() - smile_start_time > 2:
                         status_text.value = "Лицо потеряно"
-                        status_text.color = ft.Colors.RED
+                        status_text.color = ft.colors.RED
                         current_identity = None
                         auth_stage = "face_detection"
                         if arduino_triggered:
@@ -456,7 +566,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button, camera_
     cap = cv2.VideoCapture(camera_index)
     if not cap.isOpened():
         status_text.value = f"Ошибка: не удалось открыть камеру {camera_index}"
-        status_text.color = ft.Colors.RED
+        status_text.color = ft.colors.RED
         page.update()
         return
 
@@ -478,7 +588,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button, camera_
         ret, frame = cap.read()
         if not ret:
             status_text.value = "Ошибка чтения кадра с камеры"
-            status_text.color = ft.Colors.RED
+            status_text.color = ft.colors.RED
             page.update()
             break
 
@@ -497,7 +607,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button, camera_
                     current_identity = os.path.splitext(closest_face)[0]
                     closest_face_last = closest_face
                     status_text.value = f"Распознан: {current_identity}. Улыбнитесь!"
-                    status_text.color = ft.Colors.BLUE
+                    status_text.color = ft.colors.BLUE
                     # показать нейтральное фото, если есть
                     neutral_path = os.path.join(neutral_faces_path, closest_face)
                     if os.path.exists(neutral_path):
@@ -508,7 +618,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button, camera_
                     smile_start_time = time.time()
                 else:
                     status_text.value = "Лицо не найдено"
-                    status_text.color = ft.Colors.RED
+                    status_text.color = ft.colors.RED
                     match_area.src_base64 = None
 
             elif auth_stage == "smile_verification" and current_identity:
@@ -524,7 +634,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button, camera_
                     smile_detected, smile_conf = detect_smile(face_roi)
                     if smile_detected:
                         status_text.value = f"Доступ разрешен: {current_identity}"
-                        status_text.color = ft.Colors.GREEN
+                        status_text.color = ft.colors.GREEN
                         log_detection(current_identity, "Успешная аутентификация", True)
                         # показать улыбающееся изображение, если есть
                         smile_path = os.path.join(smiling_faces_path, closest_face_last) if closest_face_last else None
@@ -540,9 +650,13 @@ def start_webcam(page, image_area, match_area, status_text, exit_button, camera_
                         current_identity = None
                         auth_stage = "face_detection"
                     else:
+                        # Показываем уверенность для отладки
+                        remaining_time = 10 - (time.time() - smile_start_time)
+                        status_text.value = f"Улыбнитесь! Уверенность: {smile_conf:.2f}, осталось: {remaining_time:.1f}с"
+                        status_text.color = ft.colors.YELLOW
                         if time.time() - smile_start_time > 10:
                             status_text.value = "Таймаут улыбки. Повторите распознавание."
-                            status_text.color = ft.Colors.ORANGE
+                            status_text.color = ft.colors.ORANGE
                             log_detection(current_identity, "Таймаут улыбки", False)
                             current_identity = None
                             auth_stage = "face_detection"
@@ -552,7 +666,7 @@ def start_webcam(page, image_area, match_area, status_text, exit_button, camera_
                 else:
                     if time.time() - smile_start_time > 2:
                         status_text.value = "Лицо потеряно"
-                        status_text.color = ft.Colors.RED
+                        status_text.color = ft.colors.RED
                         current_identity = None
                         auth_stage = "face_detection"
                         if arduino_triggered:
@@ -583,7 +697,7 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
         img = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if img is None:
             status_text.value = "Ошибка загрузки изображения"
-            status_text.color = ft.Colors.RED
+            status_text.color = ft.colors.RED
             page.update()
             return
         load_face_descriptors()
@@ -592,7 +706,7 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
         if is_match:
             face_name = os.path.splitext(closest_face)[0]
             status_text.value = f"Совпадение: {face_name}"
-            status_text.color = ft.Colors.GREEN
+            status_text.color = ft.colors.GREEN
             log_detection(closest_face, "Найдено (файл)", False)
             send_to_arduino('1')
             match_img_path = os.path.join(base_path, closest_face)
@@ -601,7 +715,7 @@ def process_selected_image(e, page, image_area, match_area, status_text, exit_bu
                 match_area.src_base64 = image_to_base64(resize_image(match_img))
         else:
             status_text.value = "Совпадений не найдено"
-            status_text.color = ft.Colors.RED
+            status_text.color = ft.colors.RED
             match_area.src_base64 = None
         image_area.src_base64 = image_to_base64(img)
         exit_button.visible = True
@@ -637,7 +751,7 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
                         arduino_triggered = True
                         log_detection(closest_face, "Найдено (видео)", False)
                         status_text.value = f"Найдено: {face_name}"
-                        status_text.color = ft.Colors.GREEN
+                        status_text.color = ft.colors.GREEN
                         match_img_path = os.path.join(base_path, closest_face)
                         if os.path.exists(match_img_path):
                             match_img = cv2.imdecode(np.fromfile(match_img_path, dtype=np.uint8), cv2.IMREAD_COLOR)
@@ -647,7 +761,7 @@ def process_selected_video(e, page, image_area, match_area, status_text, exit_bu
                 else:
                     if last_detected:
                         status_text.value = "Лицо не найдено"
-                        status_text.color = ft.Colors.RED
+                        status_text.color = ft.colors.RED
                         match_area.src_base64 = None
                         if arduino_triggered:
                             send_to_arduino('0')
@@ -692,16 +806,42 @@ def pick_video(page, image_area, match_area, status_text, exit_button):
     exit_button.visible = True
     page.update()
 
+def update_smile_settings(confidence_threshold, min_neighbors, cooldown_time):
+    """Обновляет настройки детекции улыбок."""
+    global SMILE_DETECTION_CONFIG
+    SMILE_DETECTION_CONFIG['confidence_threshold'] = confidence_threshold
+    SMILE_DETECTION_CONFIG['min_neighbors'] = min_neighbors
+    SMILE_DETECTION_CONFIG['cooldown_time'] = cooldown_time
+    logging.info(f"Настройки детекции улыбок обновлены: threshold={confidence_threshold}, neighbors={min_neighbors}, cooldown={cooldown_time}")
+
 def start_interface(page: ft.Page):
     """Создаёт интерфейс Flet и подключает все кнопки."""
     page.title = "Face ID FENIX" # Facial Emotion Neural Identification compleX
     page.window_maximized = True
-    page.window_maximizable = False
-    page.window_resizable = False
+    page.window_maximizable = True
+    page.window_resizable = True
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.padding = 20
+    page.padding = 15
     page.bgcolor = "#111524"
+    
+    # Функция для переключения полноэкранного режима
+    def toggle_fullscreen(e):
+        if page.window_full_screen:
+            page.window_full_screen = False
+            page.bgcolor = "#111524"
+        else:
+            page.window_full_screen = True
+            page.bgcolor = "#000000"  # Черный фон в полноэкранном режиме
+        page.update()
+    
+    # Кнопка полноэкранного режима
+    fullscreen_button = ft.IconButton(
+        icon=ft.icons.FULLSCREEN,
+        tooltip="Полный экран",
+        on_click=toggle_fullscreen,
+        icon_color=ft.colors.WHITE70
+    )
 
     # Инициализация моделей и загрузка дескрипторов
     try:
@@ -719,20 +859,49 @@ def start_interface(page: ft.Page):
         arduino_serial = None
 
     # GUI элементы
-    image_area = ft.Image(src='None', width=1200, height=900, fit=ft.ImageFit.CONTAIN)
-    match_area = ft.Image(src='None', width=350, height=300)
-    status_text = ft.Text(size=18, weight="bold", width=320, color=ft.Colors.WHITE)
+    image_area = ft.Image(src='None', width=1000, height=750, fit=ft.ImageFit.CONTAIN)
+    match_area = ft.Image(src='None', width=400, height=350, fit=ft.ImageFit.CONTAIN)
+    status_text = ft.Text(size=16, weight="bold", width=300, color=ft.colors.WHITE)
     info_text = ft.Text(
-        "🔐 Система двухфакторной аутентификации:\n"
-        "1) Распознавание лица\n"
-        "2) Подтверждение улыбкой\n\n"
-        "Поддерживается: локальная камера, RTSP (IP-камера), файлы (изображение/видео).",
-        size=12,
-        color=ft.Colors.WHITE70
+        "🔐 Двухфакторная аутентификация: лицо + улыбка",
+        size=11,
+        color=ft.colors.WHITE70
+    )
+    
+    # Упрощенные настройки детекции улыбок
+    smile_settings_text = ft.Text("Настройки детекции:", size=12, weight="bold", color=ft.colors.WHITE)
+    
+    confidence_slider = ft.Slider(
+        min=0.3, max=0.9, value=SMILE_DETECTION_CONFIG['confidence_threshold'], 
+        divisions=12, label="Точность: {value:.1f}",
+        on_change=lambda e: None
+    )
+    
+    cooldown_slider = ft.Slider(
+        min=0.5, max=3.0, value=SMILE_DETECTION_CONFIG['cooldown_time'],
+        divisions=25, label="Время: {value:.1f}с",
+        on_change=lambda e: None
+    )
+    
+    def apply_smile_settings(e):
+        # Автоматически вычисляем min_neighbors на основе точности
+        auto_neighbors = int(20 + (confidence_slider.value - 0.3) * 50)
+        update_smile_settings(
+            confidence_slider.value,
+            auto_neighbors,
+            cooldown_slider.value
+        )
+        status_text.value = f"Настройки: точность={confidence_slider.value:.1f}, время={cooldown_slider.value:.1f}с"
+        status_text.color = ft.colors.GREEN
+        page.update()
+    
+    apply_settings_button = ft.ElevatedButton(
+        text="Применить", icon=ft.icons.SETTINGS, width=120, height=35,
+        on_click=apply_smile_settings
     )
 
     exit_button = ft.ElevatedButton(
-        text="Выход", icon=ft.Icons.EXIT_TO_APP, width=150, height=50, visible=False,
+        text="Выход", icon=ft.icons.EXIT_TO_APP, width=150, height=50, visible=False,
         on_click=lambda e: exit_mode(page)
     )
 
@@ -747,12 +916,12 @@ def start_interface(page: ft.Page):
         page.update()
 
     webcam_button = ft.ElevatedButton(
-        text="Локальная камера", icon=ft.Icons.CAMERA, width=200, height=60,
+        text="Камера", icon=ft.icons.CAMERA, width=140, height=45,
         on_click=lambda e: [update_camera_list()]
     )
 
     start_cam_button = ft.ElevatedButton(
-        text="Запустить камеру", icon=ft.Icons.PLAY_ARROW, width=200, height=60, visible=False,
+        text="Запуск", icon=ft.icons.PLAY_ARROW, width=140, height=45, visible=False,
         on_click=lambda e: start_webcam(
             page=page, image_area=image_area, match_area=match_area, status_text=status_text,
             exit_button=exit_button, camera_index=int(camera_dropdown.value) if camera_dropdown.value else 0
@@ -760,18 +929,18 @@ def start_interface(page: ft.Page):
     )
 
     rtsp_button = ft.ElevatedButton(
-        text="IP-камера (RTSP)", icon=ft.Icons.SETTINGS_ETHERNET, width=200, height=60,
+        text="IP-камера", icon=ft.icons.SETTINGS_ETHERNET, width=140, height=45,
         on_click=lambda e: start_rtsp_camera(page=page, image_area=image_area, match_area=match_area, 
                                              status_text=status_text, exit_button=exit_button)
     )
 
     image_button = ft.ElevatedButton(
-        text="Изображение", icon=ft.Icons.IMAGE, width=200, height=60,
+        text="Фото", icon=ft.icons.IMAGE, width=140, height=45,
         on_click=lambda e: pick_image(page, image_area, match_area, status_text, exit_button)
     )
 
     video_button = ft.ElevatedButton(
-        text="Видео", icon=ft.Icons.VIDEO_FILE, width=200, height=60,
+        text="Видео", icon=ft.icons.VIDEO_FILE, width=140, height=45,
         on_click=lambda e: pick_video(page, image_area, match_area, status_text, exit_button)
     )
 
@@ -781,11 +950,11 @@ def start_interface(page: ft.Page):
     camera_dropdown.on_change = on_camera_selected
 
     # Лог — live view (чтение file detection_log.txt)
-    log_entries = ft.ListView(expand=True, spacing=5, auto_scroll=True)
-    log_container = ft.Container(content=log_entries, width=400, height=750, padding=10, border=ft.border.all(1, ft.Colors.GREY_800))
+    log_entries = ft.ListView(expand=True, spacing=3, auto_scroll=True)
+    log_container = ft.Container(content=log_entries, width=350, height=600, padding=8, border=ft.border.all(1, ft.colors.GREY_800))
 
     def add_log_entry(msg):
-        log_entries.controls.append(ft.Text(msg, size=12, color=ft.Colors.WHITE, selectable=True))
+        log_entries.controls.append(ft.Text(msg, size=12, color=ft.colors.WHITE, selectable=True))
         page.update()
 
     def update_logs_loop():
@@ -811,29 +980,33 @@ def start_interface(page: ft.Page):
 
     # Разметка
     left_column = ft.Column([
-        ft.Text("Выберите действие", size=20, weight="bold", color="white"),
-        ft.Divider(height=10),
+        ft.Row([ft.Text("FENIX Face ID", size=18, weight="bold", color="white"), fullscreen_button], 
+               alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
+        ft.Divider(height=8),
         info_text,
-        ft.Divider(height=10),
-        webcam_button,
+        ft.Divider(height=8),
+        smile_settings_text,
+        confidence_slider,
+        cooldown_slider,
+        apply_settings_button,
+        ft.Divider(height=8),
+        ft.Row([webcam_button, rtsp_button], spacing=5),
         camera_dropdown,
         start_cam_button,
-        rtsp_button,
-        image_button,
-        video_button,
+        ft.Row([image_button, video_button], spacing=5),
         exit_button,
-        ft.Divider(height=10),
+        ft.Divider(height=8),
         status_text,
         match_area
-    ], spacing=10, width=360)
+    ], spacing=8, width=320)
 
-    middle_column = ft.Column([ft.Text("Видео с камеры", size=18, color=ft.Colors.WHITE), 
+    middle_column = ft.Column([ft.Text("Видео с камеры", size=16, color=ft.colors.WHITE), 
                                image_area], alignment=ft.MainAxisAlignment.CENTER, expand=True)
 
-    right_column = ft.Column([ft.Text("Журнал событий", size=18, color=ft.Colors.WHITE), log_container], width=400)
+    right_column = ft.Column([ft.Text("Журнал событий", size=16, color=ft.colors.WHITE), log_container], width=350)
 
-    page.add(ft.Row([left_column, ft.VerticalDivider(width=20), middle_column, 
-                     ft.VerticalDivider(width=20), right_column], spacing=20, expand=True))
+    page.add(ft.Row([left_column, ft.VerticalDivider(width=15), middle_column, 
+                     ft.VerticalDivider(width=15), right_column], spacing=15, expand=True))
 
 # ---------------- Запуск приложения ----------------
 if __name__ == "__main__":

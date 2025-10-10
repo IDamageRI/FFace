@@ -7,33 +7,33 @@ echo =============================================================
 echo             FENIX - Uninstaller
 echo =============================================================
 echo.
-set /p confirm="Do you really want to uninstall FENIX and delete its files? (Y/N): "
+set /p confirm="Удалить .venv, логи и временные файлы? (Y/N): "
 if /I "%confirm%" NEQ "Y" (
-    echo Aborted.
+    echo Отмена.
     pause
     exit /b
 )
 
 REM remove .venv
 if exist ".venv" (
-    echo Removing virtual environment...
+    echo Удаляю виртуальное окружение .venv ...
     rmdir /s /q ".venv"
 )
 
-REM remove database and key
-if exist "face_catalog.db" del /f /q "face_catalog.db"
-if exist "secret.key" del /f /q "secret.key"
-
-REM logs
-if exist "detection_log.txt" del /f /q "detection_log.txt"
+REM remove caches and logs
+echo Удаляю логи и временные файлы ...
+if exist "__pycache__" rmdir /s /q "__pycache__"
 if exist "app.log" del /f /q "app.log"
+if exist "detection_log.txt" del /f /q "detection_log.txt"
+if exist "build" rmdir /s /q "build"
+if exist "dist" rmdir /s /q "dist"
+if exist "*.spec" del /f /q "*.spec"
 
-echo.
-set /p delall="Also delete face_bd and face_model directories? (Y/N): "
-if /I "%delall%"=="Y" (
+set /p deldata="Также удалить каталоги данных (face_bd) и модели (face_model)? (Y/N): "
+if /I "%deldata%"=="Y" (
     if exist "face_bd" rmdir /s /q "face_bd"
     if exist "face_model" rmdir /s /q "face_model"
 )
 
-echo Uninstallation complete.
+echo Удаление завершено.
 pause

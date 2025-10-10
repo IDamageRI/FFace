@@ -142,36 +142,44 @@ echo Виртуальная среда .venv успешно создана.
 goto pause_and_return
 
 :install_deps
+cls
 echo =============================================================
 echo Установка зависимостей в .venv
 echo =============================================================
 echo.
+
 if not exist ".venv\Scripts\activate" (
-    echo .venv не найден. Сначала создайте виртуальную среду (пункт 2).
-    goto pause_and_return
+    echo [⚠️] .venv не найден. Сначала создайте виртуальную среду (пункт 1).
+    pause
+    goto menu
 )
 
-echo Активирую .venv...
+echo [ℹ️] Активирую виртуальное окружение...
 call .venv\Scripts\activate
 
+echo [⬆️] Обновляю pip...
+python -m pip install --upgrade pip
+
+echo [📦] Установка зависимостей...
+
 if exist requirements.txt (
-    echo Установка из requirements.txt ...
+    echo [📃] Установка из requirements.txt ...
     pip install -r requirements.txt
 ) else (
-    echo requirements.txt не найден. Устанавливаю основные пакеты...
+    echo [⚙️] requirements.txt не найден. Устанавливаю основные пакеты...
     pip install opencv-python pillow flet numpy scipy pyserial
 )
 
-REM Установка dlib из локального wheel (если есть)
 if exist dlib-19.24.1-cp311-cp311-win_amd64.whl (
-    echo Устанавливаю локальный dlib wheel...
+    echo [🧠] Устанавливаю локальный dlib wheel...
     pip install dlib-19.24.1-cp311-cp311-win_amd64.whl
 ) else (
-    echo Локальный dlib wheel не найден. Установите dlib вручную при необходимости.
+    echo [⚠️] Локальный dlib wheel не найден. Установите dlib вручную при необходимости.
 )
 
-echo Установка зависимостей завершена.
-goto pause_and_return
+echo [✅] Установка зависимостей завершена.
+pause
+goto menu
 
 :run_fenix
 echo =============================================================
